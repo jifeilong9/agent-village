@@ -1,0 +1,32 @@
+name: update-agent-docs
+
+on:
+  schedule:
+    # 每周一 01:17 UTC（北京时间 09:17）
+    - cron: "17 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 检查官方文档与仓库变更
+        run: npm run update
+      - name: 提交变更
+        run: |
+          if [[ -n "$(git status --porcelain docs/)" ]]; then
+            git config user.name "agent-newbie-village[bot]"
+            git config user.email "actions@users.noreply.github.com"
+            git add docs/
+            git commit -m "chore(docs): 每周官方来源变更检查 $(date -u +%F)"
+            git push
+          else
+            echo "没有变化"
+          fi

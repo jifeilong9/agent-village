@@ -1,0 +1,16 @@
+{
+  "name": "agent-village",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent 新手村：Claude Code / Pi / Codex / Antigravity / DeepSeek Harness 研究、文档与交互教学",
+  "scripts": {
+    "build": "node scripts/render-docs.mjs && node scripts/build-data.mjs && node scripts/build-standalone.mjs",
+    "docs": "node scripts/render-docs.mjs",
+    "update": "node scripts/update-docs.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

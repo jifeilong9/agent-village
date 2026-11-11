@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent 新手村 · 五个 Agent 的修炼手册</title>
+  <meta name="description" content="Claude Code、Pi、Codex、Antigravity、DeepSeek Harness 的功能研究与手把手教学。像闯新手村一样，一个功能一个功能地学会它们。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6f5e'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f6f0e2' font-family='serif'%3E村%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#village">跳到村庄地图</a>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Agent 新手村首页">
+      <span class="brand-seal" aria-hidden="true">村</span>
+      <span class="brand-text">
+        <strong>Agent 新手村</strong>
+        <small>Agent Village</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="主导航">
+      <a href="#village">村庄地图</a>
+      <a href="#recommend">修炼榜</a>
+      <a href="#library">藏经阁</a>
+      <a href="#about">村规</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="level-chip" id="level-chip" title="完成功能即可获得修为">
+        <span class="level-dot" aria-hidden="true"></span>
+        <span id="level-name">初入江湖</span>
+        <span class="level-xp" id="level-xp">0 修为</span>
+      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> AGENT ACADEMY · 持续更新中</p>
+        <h1>欢迎来到<br /><em>Agent 新手村</em></h1>
+        <p class="lead">
+          五位 Agent 导师，五间道场。我们把官方文档和仓库拆成一张张
+          <strong>能照着做的任务卡</strong>——从安装、第一个提示词，到 hooks、插件与多智能体。
+          完成一项，点亮一项。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#village">踏入村庄 <span aria-hidden="true">→</span></a>
+          <button class="btn btn-ghost" id="random-feature" type="button">随机抽一题 <span aria-hidden="true">✦</span></button>
+        </div>
+        <dl class="hero-stats" id="hero-stats">
+          <div><dt>导师</dt><dd id="stat-agents">5</dd></div>
+          <div><dt>可修炼功能</dt><dd id="stat-features">—</dd></div>
+          <div><dt>资料核对</dt><dd id="stat-updated">—</dd></div>
+        </dl>
+      </div>
+      <aside class="hero-scroll" aria-label="今日功课">
+        <div class="scroll-top"><span>今 日 功 课</span><span class="scroll-seal" aria-hidden="true">课</span></div>
+        <div class="scroll-body" id="daily-feature">
+          <p class="muted">正在翻阅村中典籍…</p>
+        </div>
+        <div class="scroll-foot">
+          <span id="daily-agent">—</span>
+          <button class="text-btn" id="daily-next" type="button">换一题 ↻</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section village" id="village">
+      <div class="section-head">
+        <div>
+          <p class="kicker">01 · 选一位导师</p>
+          <h2>村庄地图</h2>
+          <p class="section-sub">每间道场对应一个 Agent。先看定位，再决定从哪家拜师。</p>
+        </div>
+        <div class="legend" aria-hidden="true">
+          <span><i class="legend-dot done"></i>已修炼</span>
+          <span><i class="legend-dot"></i>待解锁</span>
+        </div>
+      </div>
+      <div class="village-grid" id="village-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section recommend" id="recommend">
+      <div class="section-head">
+        <div>
+          <p class="kicker">02 · 该练什么</p>
+          <h2>修炼榜</h2>
+          <p class="section-sub">不知道先学什么？看村民都在练什么，以及刚刚上新的招式。</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="推荐类型">
+          <button role="tab" class="tab active" data-tab="hot" aria-selected="true">热门推荐</button>
+          <button role="tab" class="tab" data-tab="fresh" aria-selected="false">新功能推荐</button>
+          <button role="tab" class="tab" data-tab="mine" aria-selected="false">我的推荐</button>
+        </div>
+      </div>
+      <div class="recommend-panel" id="recommend-panel" role="tabpanel"></div>
+      <div class="suggest-bar">
+        <div>
+          <strong>发现了值得收录的功能？</strong>
+          <span class="muted">推荐会保存在本机，作为下一次文档更新的线索。</span>
+        </div>
+        <button class="btn btn-small" id="open-suggest" type="button">＋ 推荐功能</button>
+      </div>
+    </section>
+
+    <section class="section library" id="library">
+      <div class="section-head">
+        <div>
+          <p class="kicker">03 · 按需查招</p>
+          <h2>藏经阁</h2>
+          <p class="section-sub">搜索功能名、命令、场景或标签，直接跳到对应任务卡。</p>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="试试：hooks / 沙箱 / 插件 / MCP / 回滚…" autocomplete="off" />
+          <kbd>/</kbd>
+        </label>
+        <div class="filter-chips" id="filter-chips" role="group" aria-label="按导师筛选"></div>
+      </div>
+      <div class="search-results" id="search-results" aria-live="polite"></div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="about-card">
+        <div class="about-main">
+          <p class="kicker">04 · 村规</p>
+          <h2>资料从哪来，多久更新</h2>
+          <p>
+            所有内容只依据各项目的<strong>官方文档、官方仓库与官方 changelog</strong>，
+            每份笔记都记录核对日期、版本和来源链接。社区文章只作旁证，不写入关键命令。
+          </p>
+          <ul class="about-list">
+            <li><strong>每周一自动巡检</strong>：抓取 <code>docs/sources.json</code> 中登记的官方来源，比对内容哈希。</li>
+            <li><strong>有变化才动笔</strong>：变更写入 <code>docs/UPDATE_LOG.md</code>，再据此修订对应道场。</li>
+            <li><strong>网页即文档</strong>：<code>npm run build</code> 汇总各道场的 <code>features.json</code>，同步到本页。</li>
+          </ul>
+        </div>
+        <div class="about-side">
+          <div class="stamp" aria-hidden="true">
+            <span>官方</span><span>核对</span><span>2026</span>
+          </div>
+          <p class="muted small">版本迭代很快，动手前请以官方最新文档为准。<br />本项目仅用于学习研究。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Agent 新手村 · 用官方文档搭的练习场</span>
+    <span class="footer-links">
+      <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noreferrer">Claude Code</a>
+      <a href="https://pi.dev" target="_blank" rel="noreferrer">Pi</a>
+      <a href="https://github.com/openai/codex" target="_blank" rel="noreferrer">Codex</a>
+      <a href="https://antigravity.google" target="_blank" rel="noreferrer">Antigravity</a>
+      <a href="https://www.deepseek.com/en/harness/" target="_blank" rel="noreferrer">DeepSeek Harness</a>
+    </span>
+  </footer>
+
+  <!-- 道场抽屉 -->
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+    <button class="icon-btn drawer-close-float" type="button" data-close-drawer aria-label="关闭道场">✕</button>
+    <div class="drawer-inner" id="drawer-inner"></div>
+  </aside>
+
+  <!-- 推荐功能弹窗 -->
+  <dialog class="suggest-dialog" id="suggest-dialog">
+    <form method="dialog" id="suggest-form">
+      <div class="dialog-head">
+        <h3>推荐一个功能</h3>
+        <button class="icon-btn" value="cancel" type="submit" aria-label="关闭">✕</button>
+      </div>
+      <p class="muted small">推荐保存在浏览器本地，不会上传。下次更新文档时可以作为线索。</p>
+      <label class="field">
+        <span>功能名</span>
+        <input name="name" required maxlength="60" placeholder="例如：Hooks 生命周期事件" />
+      </label>
+      <label class="field">
+        <span>所属 Agent</span>
+        <select name="agent" id="suggest-agent" required></select>
+      </label>
+      <label class="field">
+        <span>为什么值得收录</span>
+        <textarea name="why" rows="3" maxlength="300" placeholder="它解决了什么问题？适合什么场景？"></textarea>
+      </label>
+      <div class="dialog-foot">
+        <button class="btn btn-ghost" value="cancel" type="submit">取消</button>
+        <button class="btn btn-primary" value="default" type="submit">收进愿望单</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/agents.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

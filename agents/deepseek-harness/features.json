@@ -1,0 +1,502 @@
+{
+  "slug": "deepseek-harness",
+  "name": "DeepSeek Harness",
+  "vendor": "DeepSeek",
+  "tagline": "基于 Cordis 的全插件化 AI Agent 运行时",
+  "version": "0.2.2-rc.1",
+  "updatedAt": "2026-11-11",
+  "official": {
+    "site": "https://www.deepseek.com/en/harness/",
+    "docs": [
+      "https://deepseek-harness.github.io/deepseek-harness/"
+    ],
+    "repo": "https://github.com/deepseek-ai/deepseek-harness",
+    "changelog": "https://github.com/deepseek-ai/deepseek-harness/releases"
+  },
+  "stats": {
+    "popularity": 88,
+    "learningCurve": 3,
+    "bestFor": [
+      "追求高扩展性与插件化架构的 AI 开发者",
+      "需要多 Profile 隔离与 CI/CD 自动化的工程团队",
+      "探索 Router-Worker 多 Agent 协同的高级系统工程师"
+    ]
+  },
+  "install": {
+    "requirements": [
+      "Node.js >= 20.0.0",
+      "pnpm >= 9.0.0 (推荐) 或 npm",
+      "DeepSeek API Key 或兼容模型密钥"
+    ],
+    "steps": [
+      "安装 @deepseek-ai/dsh 命令行工具（或使用 npx 免安装运行）",
+      "设置环境变量 DEEPSEEK_API_KEY 或在 Web UI 设置中输入密钥",
+      "执行 dsh web 启动本地控制台；终端 TUI 需先安装 turtle-ui 插件，再运行 dsh --profile tui"
+    ],
+    "commands": [
+      "npm install -g @deepseek-ai/dsh",
+      "export DEEPSEEK_API_KEY=\"sk-your-key-here\"",
+      "dsh web"
+    ],
+    "verify": "dsh --version"
+  },
+  "concepts": [
+    {
+      "term": "Everything is a Plugin",
+      "desc": "DeepSeek Harness 的核心设计哲学：不仅工具是插件，模型适配器、会话存储、Agent Loop 和用户界面全都是可热插拔的插件。"
+    },
+    {
+      "term": "Cordis 微内核",
+      "desc": "底层依赖的时空可组合微内核架构，提供依赖注入（inject）、事件总线与生命周期副作用自动回收管理。"
+    },
+    {
+      "term": "Profile（运行档案）",
+      "desc": "位于 $DSH_HOME/profiles/<name> 的独立环境隔离区，包含专属的插件集、配置覆盖与依赖锁定文件。"
+    },
+    {
+      "term": "Patch Layer（补丁层）",
+      "desc": "基于 cordis.patch.yml 的声明式配置层叠机制，支持全局、Profile 级与运行时 CLI 补丁的有序覆盖与替换。"
+    },
+    {
+      "term": "Session Persistence",
+      "desc": "基于事件溯源的会话持久化后端，通过 JSONL/SQLite 与 zstd 压缩记录所有推理与工具调用轨迹。"
+    }
+  ],
+  "learningPath": [
+    {
+      "title": "快速上手与日常交互",
+      "desc": "掌握 CLI 快速安装、Web UI 交互控制台、TUI 终端模式以及模型密钥的基础配置。",
+      "features": [
+        "dsh-cli-quickstart",
+        "dsh-web-ui",
+        "dsh-model-provider",
+        "dsh-tui-mode"
+      ]
+    },
+    {
+      "title": "环境管理与工程自动化",
+      "desc": "学习 Profile 多环境隔离、声明式 Patch 层、Headless 任务执行以及插件安装与 MCP 协议集成。",
+      "features": [
+        "dsh-headless-automation",
+        "dsh-profiles-management",
+        "dsh-cordis-patch-layer",
+        "dsh-plugin-cli",
+        "dsh-mcp-client",
+        "dsh-session-persistence"
+      ]
+    },
+    {
+      "title": "内核定制、安全沙箱与多 Agent 编排",
+      "desc": "深入 Cordis 插件编写、Profile 救援、沙箱权限与子代理协同。",
+      "features": [
+        "dsh-context-rescue",
+        "dsh-sandboxing-security",
+        "dsh-custom-plugin-dev",
+        "dsh-multi-agent-teams"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "id": "dsh-cli-quickstart",
+      "name": "CLI 快速启动与零安装运行",
+      "category": "基础环境",
+      "level": "入门",
+      "hot": 95,
+      "isNew": true,
+      "releasedAt": "2026-08-15",
+      "summary": "通过 npx 或全局 npm 快速启动 DeepSeek Harness 运行时与基础环境检查。",
+      "why": "无需繁重本地环境配置，基于 Node.js/Cordis 微内核即开即用，几秒内即可体验官方 Developer Preview。",
+      "steps": [
+        "检查本地 Node.js 版本是否满足 >= 20.0.0 要求",
+        "运行 npx @deepseek-ai/dsh --version 验证包拉取与 CLI 响应",
+        "通过 npm install -g @deepseek-ai/dsh 完成全局 CLI 安装",
+        "执行 dsh --help 了解内置命令选项与 Profile 启动方式"
+      ],
+      "commands": [
+        "node --version",
+        "npx @deepseek-ai/dsh --version",
+        "npm install -g @deepseek-ai/dsh",
+        "dsh --help"
+      ],
+      "pitfalls": "Windows PowerShell 下若提示未授权脚本运行错误，需使用管理员身份调整 ExecutionPolicy 或通过 npx 运行。",
+      "doc": "https://deepseek-harness.github.io/deepseek-harness/",
+      "tags": [
+        "CLI",
+        "安装",
+        "快速上手"
+      ]
+    },
+    {
+      "id": "dsh-web-ui",
+      "name": "Web UI 交互式控制台",
+      "category": "用户界面",
+      "level": "入门",
+      "hot": 96,
+      "isNew": false,
+      "releasedAt": "2026-07-20",
+      "summary": "启动轻量级本地 Web 仪表盘（默认端口 3080），直观管理多轮会话、模型调用与可视化面板。",
+      "why": "提供比纯终端更清晰的多轮对话流、实时 Token 消耗展示、模型切换与插件状态监控。",
+      "steps": [
+        "在终端中输入 dsh web（等价于 dsh --profile web）",
+        "确认控制台输出 Service listening at http://127.0.0.1:3080",
+        "在浏览器中访问 http://127.0.0.1:3080 进入交互界面",
+        "使用 --port 8080 参数应对默认端口被占用的情况"
+      ],
+      "commands": [
+        "dsh web",
+        "dsh web --port 8080"
+      ],
+      "pitfalls": "若 3080 端口已被其他本地开发服务占用，启动可能会报错，务必显式传入 --port 指定空闲端口。",
+      "doc": "https://deepseek-harness.github.io/deepseek-harness/",
+      "tags": [
+        "WebUI",
+        "可视化",
+        "控制台"
+      ]
+    },
+    {
+      "id": "dsh-model-provider",
+      "name": "模型与 Provider 密钥配置",
+      "category": "模型路由",
+      "level": "入门",
+      "hot": 98,
+      "isNew": false,
+      "releasedAt": "2026-06-10",
+      "summary": "配置官方 deepseek-official 路由或第三方兼容模型，通过安全凭据文件与环境变量注入 API Key。",
+      "why": "凭据与配置完全解耦，密钥绝不硬编码在 Git 追踪文件内，原生支持 DeepSeek-V3 / R1 系列模型端点。",
+      "steps": [
+        "从 DeepSeek 开放平台获取有效 API Key",
+        "在环境变量中注入 DEEPSEEK_API_KEY",
+        "或在 Web 控制台 Settings → Models 面板保存，写入 ~/.dsh/.credentials.yaml",
+        "运行 dsh --profile web --dump-config 验证模型路由与提供方生效"
+      ],
+      "commands": [
+        "export DEEPSEEK_API_KEY=\"sk-your-api-key\"",
+        "$env:DEEPSEEK_API_KEY=\"sk-your-api-key\"",
+        "dsh --profile web --dump-config"
+      ],
+      "pitfalls": "绝对不要将明文 API Key 写入 cordis.patch.yml；应通过环境变量或专用的 ~/.dsh/.credentials.yaml 注入。",
+      "doc": "https://api-docs.deepseek.com/guides/harness",
+      "tags": [
+        "模型配置",
+        "APIKey",
+        "凭据安全"
+      ]
+    },
+    {
+      "id": "dsh-tui-mode",
+      "name": "TUI 终端全屏交互模式",
+      "category": "终端交互",
+      "level": "入门",
+      "hot": 82,
+      "isNew": false,
+      "releasedAt": "2026-08-05",
+      "summary": "在终端内运行功能齐备的交互式 TUI 界面，支持快捷键切换面板与流式高亮输出。",
+      "why": "针对无浏览器环境与远程 SSH 运维场景优化，在低系统开销下提供完整的交互与代码审查能力。",
+      "steps": [
+        "先给 tui Profile 安装终端 UI 插件：dsh plugin --profile tui add github:deepseek-harness/turtle-ui",
+        "运行 dsh --profile tui 启动终端界面",
+        "输入自然语言任务，观察推理与工具调用",
+        "使用 /exit 或 Ctrl+D 保存并退出"
+      ],
+      "commands": [
+        "dsh plugin --profile tui add github:deepseek-harness/turtle-ui",
+        "dsh --profile tui"
+      ],
+      "pitfalls": "tui 不是内置命令，必须先安装 turtle-ui 插件；Windows 建议使用 Windows Terminal。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "TUI",
+        "终端",
+        "SSH友好"
+      ]
+    },
+    {
+      "id": "dsh-headless-automation",
+      "name": "Headless 任务与 CI/CD 自动化",
+      "category": "脚本自动化",
+      "level": "进阶",
+      "hot": 92,
+      "isNew": false,
+      "releasedAt": "2026-07-28",
+      "summary": "通过 headless Profile 单次触发、打印最终结果并返回进程状态码，适合脚本与 CI。",
+      "why": "可无缝嵌入 Makefile、GitHub Actions 或自动化运维脚本，实现无人值守的代码审查与自动化修复。",
+      "steps": [
+        "准备需要自动执行的任务提示词",
+        "执行 dsh --profile headless \"<任务内容>\" 进行单次运算",
+        "Agent 自动检索文件、执行工具并应用修改",
+        "检查 stdout 的最终文本与退出码（0=completed，1=其他）判断结果"
+      ],
+      "commands": [
+        "dsh --profile headless \"检查当前 git 仓库的修改并运行测试\"",
+        "dsh --profile headless \"分析 src/index.ts 的潜在内存泄漏\""
+      ],
+      "pitfalls": "headless 不启动 Web/HTTP 服务；需要审批或交互的任务应改用 Web/TUI Profile。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "Headless",
+        "CI/CD",
+        "脚本化"
+      ]
+    },
+    {
+      "id": "dsh-profiles-management",
+      "name": "Profile 多环境隔离机制",
+      "category": "架构核心",
+      "level": "进阶",
+      "hot": 90,
+      "isNew": false,
+      "releasedAt": "2026-08-10",
+      "summary": "基于 $DSH_HOME/profiles/ 目录的隔离架构，实现多任务、多配置间的独立依赖与插件环境。",
+      "why": "可在同一台机器上同时管理面向开发的宽松环境与面向生产的严格只读环境，配置完全独立且互不污染。",
+      "steps": [
+        "查看本地已有 Profile 目录：~/.dsh/profiles/",
+        "从预置模板派生新 Profile：dsh --profile audit --from-default-profile headless",
+        "启动并使用指定 Profile：dsh --profile audit \"运行代码审计\"",
+        "独立维护该 Profile 下的插件与 patch 配置"
+      ],
+      "commands": [
+        "dsh --profile my-dev --from-default-profile web",
+        "dsh --profile my-dev",
+        "ls ~/.dsh/profiles"
+      ],
+      "pitfalls": "若自定义 Profile 因错误配置损坏导致启动失败，可通过 --from-default-profile <template> 重新重置为初始模板。",
+      "doc": "https://deepseek-harness.github.io/deepseek-harness/",
+      "tags": [
+        "Profile",
+        "环境隔离",
+        "配置管理"
+      ]
+    },
+    {
+      "id": "dsh-cordis-patch-layer",
+      "name": "声明式 Patch 配置层与转储",
+      "category": "配置系统",
+      "level": "进阶",
+      "hot": 89,
+      "isNew": true,
+      "releasedAt": "2026-09-01",
+      "summary": "基于 cordis.patch.yml 的原子替换与层叠机制，搭配 --dump-config 输出最终有效配置树。",
+      "why": "避免传统 deep merge 带来的配置冲突与歧义，支持通过简单的 YAML 补丁精确替换特定服务与模型参数。",
+      "steps": [
+        "了解 Patch 层叠优先级：Bundle 默认 < Profile Patch < 全局 Patch < CLI --patch",
+        "编写局部补丁文件 custom-patch.yml 调整参数",
+        "运行 dsh web --patch ./custom-patch.yml 叠加临时生效",
+        "执行 dsh --profile web --dump-config 查看并调试最终合并的 Cordis 插件树"
+      ],
+      "commands": [
+        "dsh web --patch ./custom-patch.yml",
+        "dsh --profile web --dump-config",
+        "dsh --profile web --dump-config-schema"
+      ],
+      "pitfalls": "Cordis Patch 采用 ID 行级原子替换而非递归合并字段，配置某插件时须写出该插件对应 target 块的完整 config。",
+      "doc": "https://deepseek-harness.github.io/deepseek-harness/",
+      "tags": [
+        "Patch",
+        "Cordis",
+        "配置诊断"
+      ]
+    },
+    {
+      "id": "dsh-plugin-cli",
+      "name": "插件包管理系统 (dsh plugin)",
+      "category": "扩展生态",
+      "level": "进阶",
+      "hot": 94,
+      "isNew": false,
+      "releasedAt": "2026-08-18",
+      "summary": "利用 dsh plugin --profile <name> add/remove 自动化安装与卸载特定 Profile 的插件包。",
+      "why": "自动将插件安装至 Profile 的专用隔离目录，由内部 pnpm 解析依赖并生成 lockfile，无需手动篡改根环境。",
+      "steps": [
+        "选定目标环境 Profile（如 web）",
+        "运行 dsh plugin --profile web add @deepseek-ai/dsh-subagent-codex 安装插件 Bundle",
+        "验证插件已出现在 ~/.dsh/profiles/web/package.json 依赖中",
+        "重启 Profile 使 Bundle 生效；卸载用 dsh plugin --profile web remove <package>"
+      ],
+      "commands": [
+        "dsh plugin --profile web add @deepseek-ai/dsh-subagent-codex",
+        "dsh plugin --profile web remove @deepseek-ai/dsh-subagent-codex"
+      ],
+      "pitfalls": "安装/卸载 Bundle 后必须重启 Profile；运行中的实例不会热切换 Bundle 集合。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "插件管理",
+        "CLI",
+        "生态扩展"
+      ]
+    },
+    {
+      "id": "dsh-mcp-client",
+      "name": "MCP Client 协议桥接",
+      "category": "协议集成",
+      "level": "进阶",
+      "hot": 93,
+      "isNew": true,
+      "releasedAt": "2026-09-15",
+      "summary": "CLI 自带 MCP client 依赖，但默认不启用任何 MCP server；通过 Profile 的 patch 层显式接入。",
+      "why": "按需接入标准 MCP 生态（文件检索、数据库、GitHub 等），同时避免默认信任任何外部可执行 server。",
+      "steps": [
+        "确认 Profile 依赖中包含 @deepseek-ai/dsh-mcp-client（CLI 自带，默认不启用 server）",
+        "编辑 Profile 的 cordis.patch.yml，加入你信任的 MCP server 启动命令或端点",
+        "重启 Profile：dsh web 或 dsh --profile web",
+        "用 dsh --profile web --dump-config 检查最终配置树与 MCP 工具是否挂载"
+      ],
+      "commands": [
+        "dsh web",
+        "dsh --profile web --dump-config"
+      ],
+      "pitfalls": "MCP server 命令是在 Agent 沙箱之外执行的受信代码；只接入你信任的 server，并在 patch 中显式声明。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "MCP",
+        "协议",
+        "工具生态"
+      ]
+    },
+    {
+      "id": "dsh-session-persistence",
+      "name": "会话持久化与 zstd 压缩存储",
+      "category": "会话机制",
+      "level": "进阶",
+      "hot": 88,
+      "isNew": false,
+      "releasedAt": "2026-07-15",
+      "summary": "基于事件溯源的会话持久化，默认以 session.v3.jsonl.zstd 记录推理与工具调用轨迹。",
+      "why": "完整捕获复杂长任务的推理分支与工具交互，同时通过高效流式压缩大幅节省高频交互下的磁盘消耗。",
+      "steps": [
+        "会话默认保存在 ~/.dsh/sessions/ 下，按 Profile 与 Session 分层",
+        "每轮 prompt、tool-call 与结果以 append-only 格式增量保存",
+        "历史文件使用 zstd 压缩（如 session.v3.jsonl.zstd）",
+        "用 zstdcat 查看归档内容，或在 Web/TUI 中恢复历史会话"
+      ],
+      "commands": [
+        "ls ~/.dsh/sessions",
+        "zstdcat ~/.dsh/sessions/*/*/session.v3.jsonl.zstd | tail -20"
+      ],
+      "pitfalls": "压缩后的 session 不能用普通文本查看器直接打开；先用 zstdcat 解压。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "会话日志",
+        "持久化",
+        "zstd压缩"
+      ]
+    },
+    {
+      "id": "dsh-context-rescue",
+      "name": "Profile 救援与配置恢复 (dsh rescue)",
+      "category": "配置系统",
+      "level": "进阶",
+      "hot": 90,
+      "isNew": false,
+      "releasedAt": "2026-09-20",
+      "summary": "当 Profile 配置损坏或无法启动时，用 dsh rescue 从默认模板恢复一个可启动环境。",
+      "why": "Profile 是隔离环境，patch 或依赖出错会导致启动失败；rescue 提供官方恢复路径，避免手删目录。",
+      "steps": [
+        "先备份 ~/.dsh/profiles/<name> 目录",
+        "运行 dsh rescue 查看可救援的 Profile",
+        "用 dsh rescue --from-default-profile web 从 web 模板重建目标 Profile",
+        "恢复后用 dsh --profile <name> 验证启动"
+      ],
+      "commands": [
+        "dsh rescue",
+        "dsh rescue --from-default-profile web",
+        "dsh rescue --from-default-profile web --no-open"
+      ],
+      "pitfalls": "重建会删除目标 Profile 原有依赖与用户 patch；先备份，且目标名不能与内置 profile 同名（不区分大小写）。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "Profile",
+        "救援",
+        "配置恢复",
+        "dsh rescue"
+      ]
+    },
+    {
+      "id": "dsh-sandboxing-security",
+      "name": "沙箱与权限模式",
+      "category": "安全沙箱",
+      "level": "高级",
+      "hot": 91,
+      "isNew": false,
+      "releasedAt": "2026-08-25",
+      "summary": "基于 bwrap / Landlock / Seatbelt 的进程沙箱与 workspace-write 权限预设，限制 Bash 与文件写入范围。",
+      "why": "默认 workspace-write 把命令与写操作限制在会话工作区，降低误删/越权风险；读取与网络默认不隔离，需按需加强。",
+      "steps": [
+        "了解默认 permission preset：workspace-write（Bash 与文件写入限制在工作区与临时目录）",
+        "按平台确认可用的 sandbox backend：bwrap / Landlock / Seatbelt",
+        "通过 DSH_PERMISSION_MODE 设置进程级 fallback 权限",
+        "用 dsh --profile headless \"...\" 在隔离 Profile 中运行任务，并用 --dump-config 核对权限配置"
+      ],
+      "commands": [
+        "dsh --profile headless \"执行全套测试\"",
+        "dsh --profile web --dump-config"
+      ],
+      "pitfalls": "读取与网络默认不受限；需要更强隔离时使用容器/VM，不要只依赖 workspace-write。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "沙箱",
+        "权限",
+        "workspace-write",
+        "bwrap"
+      ]
+    },
+    {
+      "id": "dsh-custom-plugin-dev",
+      "name": "自定义插件开发 (apply 与依赖注入)",
+      "category": "架构核心",
+      "level": "高级",
+      "hot": 95,
+      "isNew": false,
+      "releasedAt": "2026-08-01",
+      "summary": "基于 Cordis 微内核编写 TypeScript 插件，利用 inject 声明服务依赖并通过 apply(ctx) 扩展核心能力。",
+      "why": "真正落地 Everything is a Plugin 理念，随心所欲定制专有业务工具、修改 Prompt 模版或替换 Agent Loop 逻辑。",
+      "steps": [
+        "编写插件源文件（如 my-plugin.ts），导出 name 标识与 apply(ctx) 函数",
+        "若依赖已有服务，声明 export const inject = ['tools', 'llm']",
+        "在 apply 内部使用 ctx.tools.register() 注册自定义工具与入参校验 Schema",
+        "在 Profile 的 cordis.patch.yml 中挂载该插件路径并进行功能调试"
+      ],
+      "commands": [
+        "dsh web --patch ./local-plugin-patch.yml",
+        "dsh --profile web --dump-config"
+      ],
+      "pitfalls": "若插件使用了 ctx.tools 等服务却未在 inject 数组中显式声明依赖，Cordis 在异步挂载阶段可能会抛出 undefined 引用异常。",
+      "doc": "https://deepseek-harness.github.io/deepseek-harness/",
+      "tags": [
+        "插件开发",
+        "Cordis",
+        "依赖注入"
+      ]
+    },
+    {
+      "id": "dsh-multi-agent-teams",
+      "name": "子代理协同（Codex / Claude Code Subagents）",
+      "category": "协作编排",
+      "level": "高级",
+      "hot": 96,
+      "isNew": false,
+      "releasedAt": "2026-09-10",
+      "summary": "通过官方 subagent 插件把 Codex 或 Claude Code 作为子代理接入 Harness。",
+      "why": "把任务分派给不同 Agent，利用各自模型与工具优势；插件按 Profile 隔离，可只装一个或两个都装。",
+      "steps": [
+        "给 Profile 安装子代理插件：dsh plugin --profile web add @deepseek-ai/dsh-subagent-codex @deepseek-ai/dsh-subagent-claude-code",
+        "重启 Profile 使 Bundle 生效",
+        "在新 Agent 的 Preset 中启用对应工具行（安装的 Bundle 默认只注册 dormant provider）",
+        "在主会话中把子任务交给 Codex / Claude Code provider 执行"
+      ],
+      "commands": [
+        "dsh plugin --profile web add @deepseek-ai/dsh-subagent-codex @deepseek-ai/dsh-subagent-claude-code",
+        "dsh web"
+      ],
+      "pitfalls": "安装 Bundle 后必须重启 Profile；只安装不会自动启用工具行。",
+      "doc": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md",
+      "tags": [
+        "子代理",
+        "Codex",
+        "Claude Code",
+        "协作"
+      ]
+    }
+  ]
+}

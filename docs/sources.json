@@ -1,0 +1,52 @@
+{
+  "lastReviewed": "2026-11-11",
+  "agents": [
+    {
+      "slug": "claude-code",
+      "name": "Claude Code",
+      "sources": [
+        { "type": "docs", "url": "https://docs.claude.com/en/docs/claude-code/overview" },
+        { "type": "changelog", "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" },
+        { "type": "repo", "url": "https://github.com/anthropics/claude-code" }
+      ]
+    },
+    {
+      "slug": "pi",
+      "name": "Pi",
+      "sources": [
+        { "type": "site", "url": "https://pi.dev" },
+        { "type": "docs", "url": "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/README.md" },
+        { "type": "docs", "url": "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/docs" },
+        { "type": "repo", "url": "https://github.com/badlogic/pi-mono" }
+      ]
+    },
+    {
+      "slug": "codex",
+      "name": "Codex",
+      "sources": [
+        { "type": "docs", "url": "https://developers.openai.com/codex/" },
+        { "type": "repo", "url": "https://github.com/openai/codex" },
+        { "type": "changelog", "url": "https://github.com/openai/codex/releases" }
+      ]
+    },
+    {
+      "slug": "antigravity",
+      "name": "Antigravity",
+      "sources": [
+        { "type": "site", "url": "https://antigravity.google" },
+        { "type": "docs", "url": "https://antigravity.google/docs" },
+        { "type": "codelab", "url": "https://codelabs.developers.google.com/getting-started-google-antigravity" }
+      ]
+    },
+    {
+      "slug": "deepseek-harness",
+      "name": "DeepSeek Harness",
+      "sources": [
+        { "type": "site", "url": "https://www.deepseek.com/en/harness/" },
+        { "type": "repo", "url": "https://github.com/deepseek-ai/deepseek-harness" },
+        { "type": "docs", "url": "https://deepseek-harness.github.io/deepseek-harness/" },
+        { "type": "changelog", "url": "https://github.com/deepseek-ai/deepseek-harness/releases" }
+      ]
+    }
+  ]
+}
