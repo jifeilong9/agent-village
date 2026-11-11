@@ -15,7 +15,7 @@
 - 功能数据：`features.json`（14 项）
 - 教程：`README.md`、`features.md`
 
-## 每周巡检
+## 每日巡检
 
 `npm run update` 会检查 `docs/sources.json` 中登记的官方页面；若内容哈希变化，会在 `docs/UPDATE_LOG.md` 记录。随后按以下顺序更新：
 

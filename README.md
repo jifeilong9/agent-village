@@ -55,7 +55,7 @@ npm run update    # 检查官方文档 / 仓库是否有更新，写入 UPDATE_L
 - **单一数据源**：`agents/<slug>/features.json` 是唯一事实源；`README.md`、`features.md`、`sources.md`、`changelog.md` 与网页数据都由脚本生成，避免文档漂移。
 - `docs/sources.json` 维护每个 Agent 的官方文档、仓库、changelog 地址。
 - `npm run update` 会抓取每个来源，比较内容哈希，发生变化时写入 `docs/UPDATE_LOG.md` 与 `docs/updates/<日期>.json`。
-- `.github/workflows/update-docs.yml` 每周一自动运行并提交变更（仓库推送到 GitHub 后生效）。
+- `.github/workflows/update-docs.yml` 每天自动运行并提交变更（仓库推送到 GitHub 后生效）。
 - 每次更新后，依据 `UPDATE_LOG.md` 与官方 changelog 修订 `features.json`，再 `npm run build`。
 
 ## 数据规范（features.json）

@@ -1,6 +1,6 @@
 // 自动生成，请勿手改。源：agents/<slug>/features.json
 window.AGENT_DATA = {
-  "generatedAt": "2026-11-11T05:25:49.420Z",
+  "generatedAt": "2026-11-11T05:38:00.710Z",
   "agents": [
     {
       "slug": "claude-code",
