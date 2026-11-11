@@ -59,25 +59,41 @@ agy --version
 | **MCP (Model Context Protocol)** | 开放模型上下文协议，用于无缝桥接数据库（PostgreSQL/Supabase）、GitHub、Chrome DevTools 及第三方开发者服务。 |
 | **Rules（规则文件）** | 通过 AGENTS.md / GEMINI.md 与 .agents/rules/*.md 注入长期工程规则，支持 trigger / globs 控制生效范围。 |
 
-## 学习路径
+## 课程表
 
-### 阶段 1：初识 Agent-first 界面与核心协同
+共 3 个模块、13 节课，预计 345 分钟。
+
+### 模块 1：初识 Agent-first 界面与核心协同
 
 熟悉 Editor、Agent Manager 与 Browser 三大工作面，掌握内联编程、任务派发与产物验收流程
 
-**涉及功能**：[Editor 内联 Agent 与差异评审](features.md#ag-editor-inline) · [Agent Manager 异步多任务中心](features.md#ag-agent-manager) · [内置 Browser 自动化验证与录屏](features.md#ag-browser-testing) · [Artifacts 结构化产物与 Walkthrough 验收](features.md#ag-artifacts)
+> 4 节课 · 约 60 分钟
 
-### 阶段 2：掌控推演规划与自主执行安全
+**课程**：[Editor 内联 Agent 与差异评审](features.md#ag-editor-inline) · [Agent Manager 异步多任务中心](features.md#ag-agent-manager) · [内置 Browser 自动化验证与录屏](features.md#ag-browser-testing) · [Artifacts 结构化产物与 Walkthrough 验收](features.md#ag-artifacts)
+
+**检查点**：完成「Artifacts 结构化产物与 Walkthrough 验收」，并能在自己的项目里独立复现。
+
+### 模块 2：掌控推演规划与自主执行安全
 
 从单步生成进阶到先规划后实施，掌握 Planning 模式、权限预设档位与命令回滚机制
 
-**涉及功能**：[Planning 模式 (/plan) 架构推演](features.md#ag-planning-mode) · [Unified Permission 审批策略与自主级别](features.md#ag-permission-engine) · [终端安全策略与 Allow/Deny 列表](features.md#ag-allow-deny-policy) · [会话检查点与时光倒流 (/rewind)](features.md#ag-checkpoints-rewind) · [VS Code / JetBrains / Zed 扩展](features.md#ag-vscode-extension)
+> 5 节课 · 约 125 分钟
 
-### 阶段 3：架构进阶：工程定制与智能体集群
+**课程**：[Planning 模式 (/plan) 架构推演](features.md#ag-planning-mode) · [Unified Permission 审批策略与自主级别](features.md#ag-permission-engine) · [终端安全策略与 Allow/Deny 列表](features.md#ag-allow-deny-policy) · [会话检查点与时光倒流 (/rewind)](features.md#ag-checkpoints-rewind) · [VS Code / JetBrains / Zed 扩展](features.md#ag-vscode-extension)
+
+**检查点**：完成「VS Code / JetBrains / Zed 扩展」，并能在自己的项目里独立复现。
+
+### 模块 3：架构进阶：工程定制与智能体集群
 
 通过 MCP 接入外部生态，利用 Swarm 组织多 Agent 分工协同，沉淀团队 Rules 与工作流知识。
 
-**涉及功能**：[Model Context Protocol (MCP) 服务集成](features.md#ag-mcp-integration) · [多模型无缝切换与 Thinking 深度调节](features.md#ag-model-selection) · [多 Agent 并行执行与 Swarm 协作](features.md#ag-multi-agent-swarm) · [工程规则体系 (AGENTS.md / GEMINI.md / Rules)](features.md#ag-rules-and-skills)
+> 4 节课 · 约 160 分钟
+
+**课程**：[Model Context Protocol (MCP) 服务集成](features.md#ag-mcp-integration) · [多模型无缝切换与 Thinking 深度调节](features.md#ag-model-selection) · [多 Agent 并行执行与 Swarm 协作](features.md#ag-multi-agent-swarm) · [工程规则体系 (AGENTS.md / GEMINI.md / Rules)](features.md#ag-rules-and-skills)
+
+**检查点**：完成「工程规则体系 (AGENTS.md / GEMINI.md / Rules)」，并能在自己的项目里独立复现。
+
+> 完整课程（含每节练习与检查点）见 [course.md](course.md)。
 
 ## 功能总表
 

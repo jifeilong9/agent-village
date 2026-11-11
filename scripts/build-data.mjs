@@ -7,6 +7,7 @@ import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildCourse } from "./lib/course.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const agentsDir = path.join(root, "agents");
@@ -55,6 +56,7 @@ function withComputed(a) {
     f.isNew = Boolean(f.isNew) || (Number.isFinite(released) && now - released < NEW_WINDOW_DAYS * DAY);
     f.isHot = f.hot >= 90;
   }
+  a.course = buildCourse(a);
   return a;
 }
 
@@ -109,9 +111,13 @@ async function main() {
     "utf8"
   );
 
-  console.log(`✓ 汇总 ${agents.length} 个 Agent / ${allFeatures.length} 个功能`);
+  const totalModules = agents.reduce((n, a) => n + a.course.moduleCount, 0);
+  const totalMinutes = agents.reduce((n, a) => n + a.course.totalMinutes, 0);
+  console.log(`✓ 汇总 ${agents.length} 个 Agent / ${allFeatures.length} 个功能 / ${totalModules} 个课程模块`);
   for (const a of agents) {
-    console.log(`  - ${a.name} (${a.slug}) v${a.version} · ${a.features.length} 功能 · 人气 ${a.stats.popularity}`);
+    console.log(
+      `  - ${a.name} (${a.slug}) v${a.version} · ${a.features.length} 功能 · ${a.course.moduleCount} 模块/${a.course.totalMinutes} 分钟 · 人气 ${a.stats.popularity}`
+    );
   }
   console.log(`  热门推荐 ${payload.recommendations.hot.length} 条，新功能推荐 ${payload.recommendations.fresh.length} 条`);
   if (process.exitCode) console.error("存在校验问题，请修正后重新构建。");

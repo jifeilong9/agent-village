@@ -58,25 +58,41 @@ codex
 | **MCP（Model Context Protocol）** | 开放模型上下文协议，支持以 stdio 或 SSE 模式外挂本地进程与远端服务，让 Codex 拥有查询数据库、访问文档与调用私有 API 的能力。 |
 | **app-server（双向守护进程协议）** | Codex 底层核心服务，基于标准双向 JSON-RPC 协议通过 stdio / WebSocket / Unix Socket 驱动 IDE 插件、桌面端与远程协同终端。 |
 
-## 学习路径
+## 课程表
 
-### 阶段 1：初探终端与安全边界
+共 3 个模块、13 节课，预计 345 分钟。
+
+### 模块 1：初探终端与安全边界
 
 掌握 Codex CLI 的快速安装、TUI 交互模式、三级沙箱隔离策略以及项目级 AGENTS.md 规范注入。
 
-**涉及功能**：[交互式 TUI 与终端工作流](features.md#codex-tui) · [审批模式与三级安全沙箱](features.md#approval-sandbox) · [AGENTS.md 项目规范与上下文注入](features.md#agents-md) · [codex doctor 环境健康诊断](features.md#codex-doctor)
+> 4 节课 · 约 60 分钟
 
-### 阶段 2：非交互自动化与工程化提效
+**课程**：[交互式 TUI 与终端工作流](features.md#codex-tui) · [审批模式与三级安全沙箱](features.md#approval-sandbox) · [AGENTS.md 项目规范与上下文注入](features.md#agents-md) · [codex doctor 环境健康诊断](features.md#codex-doctor)
+
+**检查点**：完成「codex doctor 环境健康诊断」，并能在自己的项目里独立复现。
+
+### 模块 2：非交互自动化与工程化提效
 
 利用 codex exec 编写批处理任务，执行自动化多模式代码审查，持久化并分支管理历史会话，统一团队 config.toml 与 MCP 外部工具。
 
-**涉及功能**：[codex exec 非交互自动化批处理](features.md#codex-exec) · [代码智能审查（codex review & /review）](features.md#codex-review) · [会话持久化、恢复与分叉（resume & fork）](features.md#session-resume-fork) · [分层配置与环境策略（config.toml & Profiles）](features.md#config-toml) · [MCP 协议与外部工具挂载](features.md#mcp-integration)
+> 5 节课 · 约 125 分钟
 
-### 阶段 3：跨端集成与架构扩展
+**课程**：[codex exec 非交互自动化批处理](features.md#codex-exec) · [代码智能审查（codex review & /review）](features.md#codex-review) · [会话持久化、恢复与分叉（resume & fork）](features.md#session-resume-fork) · [分层配置与环境策略（config.toml & Profiles）](features.md#config-toml) · [MCP 协议与外部工具挂载](features.md#mcp-integration)
+
+**检查点**：完成「MCP 协议与外部工具挂载」，并能在自己的项目里独立复现。
+
+### 模块 3：跨端集成与架构扩展
 
 结合 VS Code 官方 IDE 插件、Codex Cloud 云端任务托管与 GitHub Action CI/CD 流水线，深入底层 JSON-RPC app-server 协议与技能插件体系。
 
-**涉及功能**：[VS Code / Cursor 官方 IDE 扩展](features.md#ide-extension) · [Codex Cloud 与 GitHub CI/CD 集成](features.md#codex-cloud-github) · [Headless 双向 JSON-RPC app-server 协议](features.md#app-server-protocol) · [Skills 机制与插件生态（SKILL.md & Plugin）](features.md#skills-plugins)
+> 4 节课 · 约 160 分钟
+
+**课程**：[VS Code / Cursor 官方 IDE 扩展](features.md#ide-extension) · [Codex Cloud 与 GitHub CI/CD 集成](features.md#codex-cloud-github) · [Headless 双向 JSON-RPC app-server 协议](features.md#app-server-protocol) · [Skills 机制与插件生态（SKILL.md & Plugin）](features.md#skills-plugins)
+
+**检查点**：完成「Skills 机制与插件生态（SKILL.md & Plugin）」，并能在自己的项目里独立复现。
+
+> 完整课程（含每节练习与检查点）见 [course.md](course.md)。
 
 ## 功能总表
 

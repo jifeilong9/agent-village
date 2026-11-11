@@ -52,25 +52,41 @@ dsh web
 | **Patch Layer（补丁层）** | 基于 cordis.patch.yml 的声明式配置层叠机制，支持全局、Profile 级与运行时 CLI 补丁的有序覆盖与替换。 |
 | **Session Persistence** | 基于事件溯源的会话持久化后端，通过 JSONL/SQLite 与 zstd 压缩记录所有推理与工具调用轨迹。 |
 
-## 学习路径
+## 课程表
 
-### 阶段 1：快速上手与日常交互
+共 3 个模块、14 节课，预计 355 分钟。
+
+### 模块 1：快速上手与日常交互
 
 掌握 CLI 快速安装、Web UI 交互控制台、TUI 终端模式以及模型密钥的基础配置。
 
-**涉及功能**：[CLI 快速启动与零安装运行](features.md#dsh-cli-quickstart) · [Web UI 交互式控制台](features.md#dsh-web-ui) · [模型与 Provider 密钥配置](features.md#dsh-model-provider) · [TUI 终端全屏交互模式](features.md#dsh-tui-mode)
+> 4 节课 · 约 60 分钟
 
-### 阶段 2：环境管理与工程自动化
+**课程**：[CLI 快速启动与零安装运行](features.md#dsh-cli-quickstart) · [Web UI 交互式控制台](features.md#dsh-web-ui) · [模型与 Provider 密钥配置](features.md#dsh-model-provider) · [TUI 终端全屏交互模式](features.md#dsh-tui-mode)
+
+**检查点**：完成「TUI 终端全屏交互模式」，并能在自己的项目里独立复现。
+
+### 模块 2：环境管理与工程自动化
 
 学习 Profile 多环境隔离、声明式 Patch 层、Headless 任务执行以及插件安装与 MCP 协议集成。
 
-**涉及功能**：[Headless 任务与 CI/CD 自动化](features.md#dsh-headless-automation) · [Profile 多环境隔离机制](features.md#dsh-profiles-management) · [声明式 Patch 配置层与转储](features.md#dsh-cordis-patch-layer) · [插件包管理系统 (dsh plugin)](features.md#dsh-plugin-cli) · [MCP Client 协议桥接](features.md#dsh-mcp-client) · [会话持久化与 zstd 压缩存储](features.md#dsh-session-persistence)
+> 6 节课 · 约 150 分钟
 
-### 阶段 3：内核定制、安全沙箱与多 Agent 编排
+**课程**：[Headless 任务与 CI/CD 自动化](features.md#dsh-headless-automation) · [Profile 多环境隔离机制](features.md#dsh-profiles-management) · [声明式 Patch 配置层与转储](features.md#dsh-cordis-patch-layer) · [插件包管理系统 (dsh plugin)](features.md#dsh-plugin-cli) · [MCP Client 协议桥接](features.md#dsh-mcp-client) · [会话持久化与 zstd 压缩存储](features.md#dsh-session-persistence)
+
+**检查点**：完成「会话持久化与 zstd 压缩存储」，并能在自己的项目里独立复现。
+
+### 模块 3：内核定制、安全沙箱与多 Agent 编排
 
 深入 Cordis 插件编写、Profile 救援、沙箱权限与子代理协同。
 
-**涉及功能**：[Profile 救援与配置恢复 (dsh rescue)](features.md#dsh-context-rescue) · [沙箱与权限模式](features.md#dsh-sandboxing-security) · [自定义插件开发 (apply 与依赖注入)](features.md#dsh-custom-plugin-dev) · [子代理协同（Codex / Claude Code Subagents）](features.md#dsh-multi-agent-teams)
+> 4 节课 · 约 145 分钟
+
+**课程**：[Profile 救援与配置恢复 (dsh rescue)](features.md#dsh-context-rescue) · [沙箱与权限模式](features.md#dsh-sandboxing-security) · [自定义插件开发 (apply 与依赖注入)](features.md#dsh-custom-plugin-dev) · [子代理协同（Codex / Claude Code Subagents）](features.md#dsh-multi-agent-teams)
+
+**检查点**：完成「子代理协同（Codex / Claude Code Subagents）」，并能在自己的项目里独立复现。
+
+> 完整课程（含每节练习与检查点）见 [course.md](course.md)。
 
 ## 功能总表
 

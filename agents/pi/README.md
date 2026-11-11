@@ -55,25 +55,41 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 | **Project Trust** | 项目信任沙箱边界。进入未知代码目录时阻断并询问是否允许加载该项目下的本地配置、MCP 服务器与扩展，防止代码执行投毒。 |
 | **Pi Packages** | 资源分发生态包。将 extensions、skills、prompts、themes 打包为 npm 或 Git 仓库，实现一键安装与集中生命周期维护。 |
 
-## 学习路径
+## 课程表
 
-### 阶段 1：新手入门：安装、交互与基础操作
+共 3 个模块、14 节课，预计 355 分钟。
+
+### 模块 1：新手入门：安装、交互与基础操作
 
 掌握终端启动、TUI 快捷键、@ 文件检索、多模型切换与会话树回溯基本功。
 
-**涉及功能**：[交互式 TUI 与人机协同控制](features.md#pi-interactive-tui) · [@ 文件检索与 Tab 路径补全](features.md#pi-file-search-tab) · [多模型即时切换与 Thinking 深度调节](features.md#pi-model-thinking) · [会话树形回溯与安全分支](features.md#pi-session-tree) · [Windows 与 Git Bash 运行环境适配](features.md#pi-windows-setup)
+> 5 节课 · 约 85 分钟
 
-### 阶段 2：进阶定制：提示词、技能与环境掌控
+**课程**：[交互式 TUI 与人机协同控制](features.md#pi-interactive-tui) · [@ 文件检索与 Tab 路径补全](features.md#pi-file-search-tab) · [多模型即时切换与 Thinking 深度调节](features.md#pi-model-thinking) · [会话树形回溯与安全分支](features.md#pi-session-tree) · [Windows 与 Git Bash 运行环境适配](features.md#pi-windows-setup)
+
+**检查点**：完成「Windows 与 Git Bash 运行环境适配」，并能在自己的项目里独立复现。
+
+### 模块 2：进阶定制：提示词、技能与环境掌控
 
 学会编写可复用 Markdown 指令模板、Agent Skills 技能库以及配置安全信任边界。
 
-**涉及功能**：[提示词模板（Prompt Templates）](features.md#pi-prompt-templates) · [Agent 技能机制（Skills）](features.md#pi-skills) · [自适应终端主题（Themes）](features.md#pi-themes) · [项目信任与安全沙箱机制](features.md#pi-project-trust)
+> 4 节课 · 约 100 分钟
 
-### 阶段 3：高级扩展与工程集成：从插件到 SDK
+**课程**：[提示词模板（Prompt Templates）](features.md#pi-prompt-templates) · [Agent 技能机制（Skills）](features.md#pi-skills) · [自适应终端主题（Themes）](features.md#pi-themes) · [项目信任与安全沙箱机制](features.md#pi-project-trust)
+
+**检查点**：完成「项目信任与安全沙箱机制」，并能在自己的项目里独立复现。
+
+### 模块 3：高级扩展与工程集成：从插件到 SDK
 
 深入 TypeScript 扩展开发、生态包管理、CLI 管道自动化、RPC 控制协议以及 SDK 二次开发。
 
-**涉及功能**：[TypeScript 扩展系统（Extensions）](features.md#pi-extensions) · [Pi Packages 资源包生态](features.md#pi-packages) · [CLI Print 与 JSON 自动化事件流模式](features.md#pi-cli-automation) · [RPC 进程间控制协议](features.md#pi-rpc-mode) · [嵌入式 TypeScript SDK](features.md#pi-sdk)
+> 5 节课 · 约 170 分钟
+
+**课程**：[TypeScript 扩展系统（Extensions）](features.md#pi-extensions) · [Pi Packages 资源包生态](features.md#pi-packages) · [CLI Print 与 JSON 自动化事件流模式](features.md#pi-cli-automation) · [RPC 进程间控制协议](features.md#pi-rpc-mode) · [嵌入式 TypeScript SDK](features.md#pi-sdk)
+
+**检查点**：完成「嵌入式 TypeScript SDK」，并能在自己的项目里独立复现。
+
+> 完整课程（含每节练习与检查点）见 [course.md](course.md)。
 
 ## 功能总表
 

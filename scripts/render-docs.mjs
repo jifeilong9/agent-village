@@ -7,6 +7,7 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildCourse, courseMarkdown } from "./lib/course.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const agentsDir = path.join(root, "agents");
@@ -29,19 +30,16 @@ function featureTable(agent) {
   return ["| 功能 | 难度 | 热度 | 分类 | 一句话 |", "| --- | --- | --- | --- | --- |", ...rows].join("\n");
 }
 
-function learningPath(agent) {
-  const sections = (agent.learningPath || []).map((step, i) => {
-    const links = (step.features || [])
-      .map((id) => {
-        const f = agent.features.find((x) => x.id === id);
-        return f ? `[${f.name}](features.md#${id})` : null;
-      })
-      .filter(Boolean)
+function courseOverview(agent) {
+  const course = buildCourse(agent);
+  if (!course.modules.length) return "按「入门 → 进阶 → 高级」顺序阅读功能总表即可。";
+  const sections = course.modules.map((m, i) => {
+    const links = m.lessons
+      .map((l) => `[${l.name}](features.md#${l.id})`)
       .join(" · ");
-    const heading = /^阶段\s*\d/.test(step.title) ? step.title : `阶段 ${i + 1}：${step.title}`;
-    return `### ${heading}\n\n${step.desc}\n\n${links ? `**涉及功能**：${links}` : ""}`;
+    return `### 模块 ${i + 1}：${m.title}\n\n${m.desc}\n\n> ${m.lessons.length} 节课 · 约 ${m.minutes} 分钟\n\n**课程**：${links}\n\n**检查点**：${m.checkpoint}`;
   });
-  return sections.length ? sections.join("\n\n") : "按「入门 → 进阶 → 高级」顺序阅读功能总表即可。";
+  return `共 ${course.moduleCount} 个模块、${course.lessonCount} 节课，预计 ${course.totalMinutes} 分钟。\n\n${sections.join("\n\n")}\n\n> 完整课程（含每节练习与检查点）见 [course.md](course.md)。`;
 }
 
 function readme(agent) {
@@ -81,9 +79,9 @@ ${agent.install?.verify ? `**验证**：${agent.install.verify}` : ""}
 | --- | --- |
 ${(agent.concepts || []).map((c) => `| **${cell(c.term)}** | ${cell(c.desc)} |`).join("\n")}
 
-## 学习路径
+## 课程表
 
-${learningPath(agent)}
+${courseOverview(agent)}
 
 ## 功能总表
 
@@ -233,10 +231,11 @@ async function main() {
     const agent = JSON.parse(await readFile(file, "utf8"));
     await writeFile(path.join(agentsDir, dir.name, "README.md"), readme(agent), "utf8");
     await writeFile(path.join(agentsDir, dir.name, "features.md"), featuresDoc(agent), "utf8");
+    await writeFile(path.join(agentsDir, dir.name, "course.md"), courseMarkdown(agent), "utf8");
     await writeFile(path.join(agentsDir, dir.name, "sources.md"), sourcesDoc(agent), "utf8");
     await writeFile(path.join(agentsDir, dir.name, "changelog.md"), changelogDoc(agent), "utf8");
     count += 1;
-    console.log(`✓ ${agent.name}: README.md + features.md + sources.md + changelog.md`);
+    console.log(`✓ ${agent.name}: README.md + features.md + course.md + sources.md + changelog.md`);
   }
   console.log(`完成 ${count} 个道场文档生成`);
 }

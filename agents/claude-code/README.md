@@ -60,25 +60,41 @@ brew install --cask claude-code
 | **Subagents (子智能体)** | 拥有隔离上下文、专属模型与专用工具集的分工代理，可在后台并发执行探索与扫描，防止主上下文污染。 |
 | **MCP (Model Context Protocol)** | 开放标准协议，用于将 Claude Code 连接至本地数据库、开发服务器、GitHub 以及远程云服务。 |
 
-## 学习路径
+## 课程表
 
-### 阶段 1：入门阶段：终端会话与基础控制
+共 3 个模块、13 节课，预计 330 分钟。
+
+### 模块 1：终端会话与基础控制
 
 掌握安装配置、日常快捷命令、项目规则沉淀与规划模式，建立安全的日常 AI 辅助开发习惯。
 
-**涉及功能**：[斜杠命令与会话交互](features.md#cc-slash-commands) · [CLAUDE.md 与项目记忆体系](features.md#cc-memory-claude-md) · [Plan Mode 架构规划模式](features.md#cc-plan-mode) · [Headless 模式与 Unix 管道](features.md#cc-headless-pipe)
+> 4 节课 · 约 60 分钟
 
-### 阶段 2：进阶阶段：工作流强化与扩展集成
+**课程**：[斜杠命令与会话交互](features.md#cc-slash-commands) · [CLAUDE.md 与项目记忆体系](features.md#cc-memory-claude-md) · [Plan Mode 架构规划模式](features.md#cc-plan-mode) · [Headless 模式与 Unix 管道](features.md#cc-headless-pipe)
+
+**检查点**：完成「Headless 模式与 Unix 管道」，并能在自己的项目里独立复现。
+
+### 模块 2：工作流强化与扩展集成
 
 利用时光机回滚、自定义技能、MCP 协议集成、生命周期钩子以及 GitHub Actions 打造生产级开发流水线。
 
-**涉及功能**：[Checkpoints 快照与 /rewind 时光机](features.md#cc-rewind-checkpoints) · [Skills 自定义能力与动态上下文](features.md#cc-skills) · [MCP (Model Context Protocol) 工具协议集成](features.md#cc-mcp) · [Hooks 生命周期事件钩子](features.md#cc-hooks) · [多级权限与安全控制体系](features.md#cc-permissions) · [GitHub Actions CI/CD 与 @claude 协作](features.md#cc-github-actions)
+> 6 节课 · 约 150 分钟
 
-### 阶段 3：高级阶段：多智能体与生态延展
+**课程**：[Checkpoints 快照与 /rewind 时光机](features.md#cc-rewind-checkpoints) · [Skills 自定义能力与动态上下文](features.md#cc-skills) · [MCP (Model Context Protocol) 工具协议集成](features.md#cc-mcp) · [Hooks 生命周期事件钩子](features.md#cc-hooks) · [多级权限与安全控制体系](features.md#cc-permissions) · [GitHub Actions CI/CD 与 @claude 协作](features.md#cc-github-actions)
+
+**检查点**：完成「GitHub Actions CI/CD 与 @claude 协作」，并能在自己的项目里独立复现。
+
+### 模块 3：多智能体与生态延展
 
 构建专业 Subagent 分工协作体系，借助 Agent SDK 进行系统级二次开发，并运用跨端接力实现全场景开发。
 
-**涉及功能**：[Subagents 专业子智能体分工](features.md#cc-subagents) · [Agent SDK 编程式智能体开发](features.md#cc-agent-sdk) · [Remote Control 与 Teleport 跨端接力](features.md#cc-remote-teleport)
+> 3 节课 · 约 120 分钟
+
+**课程**：[Subagents 专业子智能体分工](features.md#cc-subagents) · [Agent SDK 编程式智能体开发](features.md#cc-agent-sdk) · [Remote Control 与 Teleport 跨端接力](features.md#cc-remote-teleport)
+
+**检查点**：完成「Remote Control 与 Teleport 跨端接力」，并能在自己的项目里独立复现。
+
+> 完整课程（含每节练习与检查点）见 [course.md](course.md)。
 
 ## 功能总表
 

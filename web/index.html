@@ -21,6 +21,7 @@
     </a>
     <nav class="topnav" aria-label="主导航">
       <a href="#village">村庄地图</a>
+      <a href="#courses">课程表</a>
       <a href="#recommend">修炼榜</a>
       <a href="#library">藏经阁</a>
       <a href="#about">村规</a>
@@ -44,7 +45,7 @@
         <h1>欢迎来到<br /><em>Agent 新手村</em></h1>
         <p class="lead">
           五位 Agent 导师，五间道场。我们把官方文档和仓库拆成一张张
-          <strong>能照着做的任务卡</strong>——从安装、第一个提示词，到 hooks、插件与多智能体。
+          <strong>能照着做的任务卡</strong>，再自动编排成课程——从安装、第一个提示词，到 hooks、插件与多智能体。
           完成一项，点亮一项。
         </p>
         <div class="hero-actions">
@@ -54,6 +55,7 @@
         <dl class="hero-stats" id="hero-stats">
           <div><dt>导师</dt><dd id="stat-agents">5</dd></div>
           <div><dt>可修炼功能</dt><dd id="stat-features">—</dd></div>
+          <div><dt>课程模块</dt><dd id="stat-modules">—</dd></div>
           <div><dt>资料核对</dt><dd id="stat-updated">—</dd></div>
         </dl>
       </div>
@@ -84,10 +86,25 @@
       <div class="village-grid" id="village-grid" aria-live="polite"></div>
     </section>
 
+    <section class="section courses" id="courses">
+      <div class="section-head">
+        <div>
+          <p class="kicker">02 · 系统课</p>
+          <h2>课程表</h2>
+          <p class="section-sub">由学习路径与功能数据自动编排：模块、课时、练习、检查点，一条线学完一个 Agent。</p>
+        </div>
+        <div class="course-legend" aria-hidden="true">
+          <span>从第一节课开始</span>
+          <span>按进度自动继续</span>
+        </div>
+      </div>
+      <div class="village-grid course-grid" id="course-grid" aria-live="polite"></div>
+    </section>
+
     <section class="section recommend" id="recommend">
       <div class="section-head">
         <div>
-          <p class="kicker">02 · 该练什么</p>
+          <p class="kicker">03 · 该练什么</p>
           <h2>修炼榜</h2>
           <p class="section-sub">不知道先学什么？看村民都在练什么，以及刚刚上新的招式。</p>
         </div>
@@ -110,7 +127,7 @@
     <section class="section library" id="library">
       <div class="section-head">
         <div>
-          <p class="kicker">03 · 按需查招</p>
+          <p class="kicker">04 · 按需查招</p>
           <h2>藏经阁</h2>
           <p class="section-sub">搜索功能名、命令、场景或标签，直接跳到对应任务卡。</p>
         </div>
@@ -129,16 +146,16 @@
     <section class="section about" id="about">
       <div class="about-card">
         <div class="about-main">
-          <p class="kicker">04 · 村规</p>
+          <p class="kicker">05 · 村规</p>
           <h2>资料从哪来，多久更新</h2>
           <p>
             所有内容只依据各项目的<strong>官方文档、官方仓库与官方 changelog</strong>，
             每份笔记都记录核对日期、版本和来源链接。社区文章只作旁证，不写入关键命令。
           </p>
           <ul class="about-list">
-            <li><strong>每周一自动巡检</strong>：抓取 <code>docs/sources.json</code> 中登记的官方来源，比对内容哈希。</li>
+            <li><strong>每天自动巡检</strong>：抓取 <code>docs/sources.json</code> 中登记的官方来源，比对内容哈希。</li>
             <li><strong>有变化才动笔</strong>：变更写入 <code>docs/UPDATE_LOG.md</code>，再据此修订对应道场。</li>
-            <li><strong>网页即文档</strong>：<code>npm run build</code> 汇总各道场的 <code>features.json</code>，同步到本页。</li>
+            <li><strong>课程自动生成</strong>：<code>learningPath + features.json</code> → 模块、练习、检查点 → <code>course.md</code> 与本页课程表。</li>
           </ul>
         </div>
         <div class="about-side">

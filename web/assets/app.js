@@ -156,8 +156,10 @@
       ? `完成 ${done}/${features} 个功能 · 距「${info.next}」还差 ${info.toNext} 修为`
       : `完成 ${done}/${features} 个功能 · 已达最高境界`;
 
+    const modules = AGENTS.reduce((n, a) => n + (a.course?.moduleCount || 0), 0);
     $("#stat-agents").textContent = AGENTS.length || 5;
     $("#stat-features").textContent = features || "—";
+    $("#stat-modules").textContent = modules || "—";
     $("#stat-updated").textContent = updatedAt();
   }
 
@@ -196,6 +198,40 @@
               </button>
             </div>
           </div>
+        </article>`;
+    }).join("");
+  }
+
+  /* ---------- courses ---------- */
+  function renderCourses() {
+    const grid = $("#course-grid");
+    if (!grid) return;
+    if (!AGENTS.length) {
+      grid.innerHTML = `<div class="rec-empty">课程表生成中：等 features.json 就位后会自动编排。</div>`;
+      return;
+    }
+    grid.innerHTML = AGENTS.map((agent) => {
+      const course = agent.course;
+      if (!course) return "";
+      const lessons = course.modules.flatMap((m) => m.lessons);
+      const done = lessons.filter((l) => state.progress.has(keyOf(agent.slug, l.id))).length;
+      const pct = lessons.length ? Math.round((done / lessons.length) * 100) : 0;
+      return `
+        <article class="course-card" data-open-course="${esc(agent.slug)}" style="--agent:${accentOf(agent.slug)}">
+          <div class="course-card-top">
+            <span class="course-glyph" aria-hidden="true">${esc(glyphOf(agent))}</span>
+            <span class="chip">${course.moduleCount} 模块 · ${course.lessonCount} 节</span>
+          </div>
+          <h3>${esc(agent.name)}</h3>
+          <p class="course-card-sub">${esc(agent.tagline || "")}</p>
+          <div class="course-card-stats">
+            <span>约 ${course.totalMinutes} 分钟</span>
+            <span>${done}/${lessons.length} 已完成</span>
+          </div>
+          <div class="mini-bar"><i style="width:${pct}%"></i></div>
+          <button class="btn btn-small course-start" type="button" data-open-course="${esc(agent.slug)}">
+            ${done ? "继续课程" : "开始课程"} <span aria-hidden="true">→</span>
+          </button>
         </article>`;
     }).join("");
   }
@@ -346,16 +382,19 @@
     return (agent.features || []).find((f) => f.id === id) || null;
   }
 
-  function syncUrl(agentSlug, featureId) {
+  function syncUrl(agentSlug, featureId, tab = "features") {
     try {
       const url = new URL(location.href);
       if (agentSlug) {
         url.searchParams.set("agent", agentSlug);
         if (featureId) url.searchParams.set("feature", featureId);
         else url.searchParams.delete("feature");
+        if (tab !== "features") url.searchParams.set("tab", tab);
+        else url.searchParams.delete("tab");
       } else {
         url.searchParams.delete("agent");
         url.searchParams.delete("feature");
+        url.searchParams.delete("tab");
       }
       history.replaceState(null, "", url);
     } catch {
@@ -363,15 +402,15 @@
     }
   }
 
-  function openAgent(slug, featureId = null) {
+  function openAgent(slug, featureId = null, tab = "features") {
     const agent = getAgent(slug);
     if (!agent) return;
     state.activeAgent = slug;
-    state.drawerTab = "features";
+    state.drawerTab = tab;
     state.levelFilter = "all";
     state.openFeatureId = featureId;
     state.lastFocus = document.activeElement;
-    syncUrl(slug, featureId);
+    syncUrl(slug, featureId, tab);
 
     clearTimeout(closeTimer);
     backdrop.hidden = false;
@@ -429,8 +468,8 @@
   function drawerTabs(agent) {
     const tabs = [
       ["features", "功能修炼"],
+      ["course", "课程表"],
       ["install", "入村仪式"],
-      ["paths", "学习路径"],
       ["official", "官方资料"],
     ];
     return `<div class="drawer-tabs" role="tablist" aria-label="道场内容">${tabs
@@ -540,30 +579,76 @@
       </div>`;
   }
 
-  function pathsSection(agent) {
-    const path = agent.learningPath || [];
-    if (!path.length) {
-      return `<div class="drawer-section"><h3><span class="num">PATH</span> 学习路径</h3><div class="drawer-empty">尚未整理学习路径，可先按「入门 → 进阶 → 高级」顺序修炼。</div></div>`;
+  function courseSection(agent) {
+    const course = agent.course;
+    if (!course || !course.modules?.length) {
+      return `<div class="drawer-section"><h3><span class="num">COURSE</span> 课程表</h3><div class="drawer-empty">课程生成中：features.json 就位后会自动编排模块、课时与检查点。</div></div>`;
     }
+    const lessons = course.modules.flatMap((m) => m.lessons);
+    const doneCount = lessons.filter((l) => state.progress.has(keyOf(agent.slug, l.id))).length;
+    const pct = lessons.length ? Math.round((doneCount / lessons.length) * 100) : 0;
+    const next = lessons.find((l) => !state.progress.has(keyOf(agent.slug, l.id)));
     return `
       <div class="drawer-section">
-        <h3><span class="num">PATH</span> 学习路径</h3>
-        <p>建议按这个顺序走。点击任意节点，直接跳到对应任务卡。</p>
-        <div class="path">
-          ${path.map((p, i) => `
-            <div class="path-step">
-              <span class="idx">${i + 1}</span>
-              <div>
-                <strong>${esc(p.title)}</strong>
-                <p>${esc(p.desc || "")}</p>
-                ${(p.features || []).length ? `<div class="path-links">${p.features.map((id) => {
-                  const f = featureById(agent, id);
-                  return f ? `<button class="path-link" type="button" data-path-feature="${esc(id)}">${esc(f.name)}</button>` : "";
-                }).join("")}</div>` : ""}
+        <h3><span class="num">COURSE</span> 课程表</h3>
+        <div class="course-summary">
+          <div class="course-summary-main">
+            <div><strong>${course.moduleCount}</strong> 模块 · <strong>${course.lessonCount}</strong> 节 · 约 <strong>${course.totalMinutes}</strong> 分钟</div>
+            <p>${esc(course.subtitle || "")}</p>
+          </div>
+          <button class="btn btn-small btn-primary" type="button" data-continue-course="${esc(agent.slug)}">${next ? "继续下一节" : "已全部完成"}</button>
+        </div>
+        <div class="drawer-progress">
+          <div class="mini-bar"><i style="width:${pct}%"></i></div>
+          <span>${doneCount}/${lessons.length} · ${pct}%</span>
+        </div>
+        <div class="course-modules">
+          ${course.modules.map((m, i) => `
+            <section class="course-module">
+              <header class="course-module-head">
+                <span class="course-module-idx">${String(i + 1).padStart(2, "0")}</span>
+                <div class="course-module-title">
+                  <strong>${esc(m.title)}</strong>
+                  <p>${esc(m.desc || "")}</p>
+                </div>
+                <span class="course-module-time">${m.lessons.length} 节 · ${m.minutes} 分钟</span>
+              </header>
+              <div class="course-lessons">
+                ${m.lessons.map((l, j) => {
+                  const done = state.progress.has(keyOf(agent.slug, l.id));
+                  return `<div class="course-lesson ${done ? "done" : ""}">
+                    <span class="course-lesson-idx">${done ? "✓" : `${i + 1}.${j + 1}`}</span>
+                    <div class="course-lesson-main">
+                      <strong>${esc(l.name)}</strong>
+                      <p>${esc(l.summary)}</p>
+                      <div class="course-lesson-meta">
+                        <span class="level-pill level-${esc(l.level)}">${esc(l.level)}</span>
+                        <span>${l.minutes} 分钟</span>
+                        ${done ? `<span>已点亮</span>` : ""}
+                      </div>
+                    </div>
+                    <button class="btn btn-small" type="button" data-open-feature="${esc(agent.slug)}|${esc(l.id)}">${done ? "复习" : "开始"}</button>
+                  </div>`;
+                }).join("")}
               </div>
-            </div>`).join("")}
+              <div class="course-checkpoint"><strong>检查点</strong>${esc(m.checkpoint)}</div>
+            </section>`).join("")}
         </div>
       </div>`;
+  }
+
+  function continueCourse(slug) {
+    const agent = getAgent(slug);
+    const course = agent?.course;
+    if (!course) return;
+    const next = course.modules
+      .flatMap((m) => m.lessons)
+      .find((l) => !state.progress.has(keyOf(slug, l.id)));
+    if (!next) {
+      toast("这门课程已经全部点亮");
+      return;
+    }
+    openAgent(slug, next.id);
   }
 
   function officialSection(agent) {
@@ -598,7 +683,7 @@
     const body = $("#drawer-body");
     if (!body) return;
     if (state.drawerTab === "install") body.innerHTML = installSection(agent);
-    else if (state.drawerTab === "paths") body.innerHTML = pathsSection(agent);
+    else if (state.drawerTab === "course") body.innerHTML = courseSection(agent);
     else if (state.drawerTab === "official") body.innerHTML = officialSection(agent);
     else body.innerHTML = featureList(agent);
   }
@@ -645,6 +730,7 @@
     }
     updateChrome();
     renderVillage();
+    renderCourses();
     renderSearch();
     updateDrawerProgress(agent);
     toast(wasDone ? `已取消「${f.name}」` : `+${XP_PER_FEATURE} 修为 · 点亮「${f.name}」`);
@@ -748,6 +834,16 @@
   /* ---------- events ---------- */
   function bind() {
     document.addEventListener("click", (e) => {
+      const openCourse = e.target.closest("[data-open-course]");
+      if (openCourse) {
+        openAgent(openCourse.dataset.openCourse, null, "course");
+        return;
+      }
+      const continueBtn = e.target.closest("[data-continue-course]");
+      if (continueBtn) {
+        continueCourse(continueBtn.dataset.continueCourse);
+        return;
+      }
       const openAgentBtn = e.target.closest("[data-open-agent]");
       if (openAgentBtn) {
         openAgent(openAgentBtn.dataset.openAgent);
@@ -820,16 +916,6 @@
         if (agent) toggleFeature(agent, check.dataset.checkFeature);
         return;
       }
-      const path = e.target.closest("[data-path-feature]");
-      if (path) {
-        const agent = getAgent(state.activeAgent);
-        if (!agent) return;
-        state.drawerTab = "features";
-        state.levelFilter = "all";
-        state.openFeatureId = path.dataset.pathFeature;
-        renderDrawer();
-        return;
-      }
       const copy = e.target.closest(".copy-btn");
       if (copy) {
         copyText(copy.dataset.copy, copy);
@@ -896,6 +982,7 @@
     bind();
     updateChrome();
     renderVillage();
+    renderCourses();
     renderFilters();
     renderSearch();
     renderRecommendations();
@@ -904,7 +991,10 @@
     const params = new URLSearchParams(location.search);
     const initialAgent = params.get("agent");
     if (initialAgent && getAgent(initialAgent)) {
-      openAgent(initialAgent, params.get("feature"));
+      const initialTab = ["features", "course", "install", "official"].includes(params.get("tab"))
+        ? params.get("tab")
+        : "features";
+      openAgent(initialAgent, params.get("feature"), initialTab);
     }
   }
 
