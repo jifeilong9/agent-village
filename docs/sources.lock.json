@@ -4,7 +4,7 @@
       "hash": "15aff7e56d96a7cf466286d20698ddf6dc2a3cb650234f3cad051b75ac198eca",
       "title": "DeepSeek Harness | Explore the limits of intelligence",
       "finalUrl": "https://www.deepseek.com/en/harness/",
-      "checkedAt": "2026-11-16T07:58:48.443Z",
+      "checkedAt": "2026-11-17T09:13:03.410Z",
       "firstSeenAt": "2026-11-11T04:08:36.328Z",
       "lastChangedAt": "2026-11-11T04:08:36.328Z"
     },
@@ -12,7 +12,7 @@
       "hash": "e562a9c52c7a8128f4f86a266d433bda6f585cf54b3ae7dbc53c5284a14a4a6e",
       "title": "DeepSeek Harness",
       "finalUrl": "https://deepseek-harness.github.io/deepseek-harness/",
-      "checkedAt": "2026-11-16T07:58:48.621Z",
+      "checkedAt": "2026-11-17T09:13:03.278Z",
       "firstSeenAt": "2026-11-11T04:08:38.114Z",
       "lastChangedAt": "2026-11-11T04:08:38.114Z"
     },
@@ -20,7 +20,7 @@
       "hash": "7754055a5f9c92f0f2419e095a16838a452ad06c4ca778ba4455a11bf9563250",
       "title": "Redirecting to: /docs/getting-started",
       "finalUrl": "https://antigravity.google/docs",
-      "checkedAt": "2026-11-16T07:58:48.400Z",
+      "checkedAt": "2026-11-17T09:13:03.256Z",
       "firstSeenAt": "2026-11-11T04:08:38.647Z",
       "lastChangedAt": "2026-11-11T04:08:38.647Z"
     },
@@ -28,114 +28,114 @@
       "hash": "14514d0fa2819adde50c3bd300efe4538c6aa9864342622c2be0d9a7521ae1de",
       "title": "Pi",
       "finalUrl": "https://pi.dev/",
-      "checkedAt": "2026-11-16T07:58:48.363Z",
+      "checkedAt": "2026-11-17T09:13:03.188Z",
       "firstSeenAt": "2026-11-11T04:08:38.754Z",
       "lastChangedAt": "2026-11-11T04:08:38.754Z"
     },
     "https://github.com/openai/codex": {
-      "hash": "24913be3c4bb3da6458eac217a1301fa064739f48168e7b8b9f4f0b004d85b1e",
+      "hash": "2980252738d79e5d3c3291cec9f5cd906cf9621ea78b7ac32e7c0ba180108fc0",
       "title": "GitHub - openai/codex: Lightweight coding agent that runs in your terminal · GitHub",
       "finalUrl": "https://github.com/openai/codex",
-      "checkedAt": "2026-11-16T07:58:48.818Z",
+      "checkedAt": "2026-11-17T09:13:04.398Z",
       "firstSeenAt": "2026-11-11T04:08:38.961Z",
-      "lastChangedAt": "2026-11-16T07:58:48.818Z"
+      "lastChangedAt": "2026-11-17T09:13:04.398Z"
     },
     "https://github.com/deepseek-ai/deepseek-harness": {
-      "hash": "80ca8318cda15a70aaa13743dc7332617a6602e08d946b06498563bde492e89d",
+      "hash": "7d0312ea8eb0d022207a4233067e7c305fa4dd0724812fea882bcf907e29002c",
       "title": "GitHub - deepseek-ai/deepseek-harness: DeepSeek Harness: Everything is a Plugin. · GitHub",
       "finalUrl": "https://github.com/deepseek-ai/deepseek-harness",
-      "checkedAt": "2026-11-16T07:58:48.940Z",
+      "checkedAt": "2026-11-17T09:13:04.406Z",
       "firstSeenAt": "2026-11-11T04:08:38.994Z",
-      "lastChangedAt": "2026-11-16T07:58:48.940Z"
+      "lastChangedAt": "2026-11-17T09:13:04.406Z"
     },
     "https://antigravity.google": {
       "hash": "122fd63e80b8b377b3cc0b9142586a2d2fc60b6d86d4d7d95ccd6c11c9caad23",
       "title": "Google Antigravity",
       "finalUrl": "https://antigravity.google/",
-      "checkedAt": "2026-11-16T07:58:48.402Z",
+      "checkedAt": "2026-11-17T09:13:03.277Z",
       "firstSeenAt": "2026-11-11T04:08:39.088Z",
       "lastChangedAt": "2026-11-13T07:57:50.769Z"
     },
     "https://github.com/anthropics/claude-code": {
-      "hash": "615b10c59f212a882c9a27882a371a5ea5992dc9e1dcbc8a8b7c036a1dcc4f41",
+      "hash": "f025337e4e980738d069de031926270bfdbcf8482abb146e5fe2d666383f2ffa",
       "title": "GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub",
       "finalUrl": "https://github.com/anthropics/claude-code",
-      "checkedAt": "2026-11-16T07:58:48.861Z",
+      "checkedAt": "2026-11-17T09:13:03.838Z",
       "firstSeenAt": "2026-11-11T04:08:39.163Z",
-      "lastChangedAt": "2026-11-16T07:58:48.861Z"
+      "lastChangedAt": "2026-11-17T09:13:03.838Z"
     },
     "https://github.com/openai/codex/releases": {
-      "hash": "b37820c40731ed530eb703525387f1d2a093c19637f9a83e1aa3c7740eacda45",
+      "hash": "bc7eb199543696313c78dcc71ca52f61c1931a313f99ae453351151bd0edeac9",
       "title": "Releases · openai/codex · GitHub",
       "finalUrl": "https://github.com/openai/codex/releases",
-      "checkedAt": "2026-11-16T07:58:49.450Z",
+      "checkedAt": "2026-11-17T09:13:04.720Z",
       "firstSeenAt": "2026-11-11T04:08:39.209Z",
-      "lastChangedAt": "2026-11-16T07:58:49.450Z"
+      "lastChangedAt": "2026-11-17T09:13:04.720Z"
     },
     "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/README.md": {
-      "hash": "b8b1213f33b2a718b35e46c75ea28f49040405445eaf019ec61ec5cc2083174f",
+      "hash": "0a0318bf4a7100a58a5706a21a2a3485f49a368a528e9897f4f979d67a740eac",
       "title": "pi/packages/coding-agent/README.md at main · earendil-works/pi · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/README.md",
-      "checkedAt": "2026-11-16T07:58:48.931Z",
+      "checkedAt": "2026-11-17T09:13:04.203Z",
       "firstSeenAt": "2026-11-11T04:08:39.337Z",
-      "lastChangedAt": "2026-11-14T07:36:47.078Z"
+      "lastChangedAt": "2026-11-17T09:13:04.203Z"
     },
     "https://github.com/deepseek-ai/deepseek-harness/releases": {
-      "hash": "b83bd41023cbefe67ab0b00e712266fdc6d2c13003105885ae5acb9b84a23b93",
+      "hash": "1ca1ac2eb1d8f415fa8e92836bde4b7df72d75c78d74784741a485d4d342a3b8",
       "title": "Releases · deepseek-ai/deepseek-harness · GitHub",
       "finalUrl": "https://github.com/deepseek-ai/deepseek-harness/releases",
-      "checkedAt": "2026-11-16T07:58:49.403Z",
+      "checkedAt": "2026-11-17T09:13:04.436Z",
       "firstSeenAt": "2026-11-11T04:08:39.485Z",
-      "lastChangedAt": "2026-11-16T07:58:49.403Z"
+      "lastChangedAt": "2026-11-17T09:13:04.436Z"
     },
     "https://github.com/badlogic/pi-mono": {
-      "hash": "799477d91085ade803fe3d311bbf42d53e279542dda607d21e036b71e2aaf845",
+      "hash": "28b54851693ba7a0995e9db5e910ad54e08431d409be92520fd667b6deff2b28",
       "title": "GitHub - earendil-works/pi: AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi",
-      "checkedAt": "2026-11-16T07:58:49.057Z",
+      "checkedAt": "2026-11-17T09:13:04.535Z",
       "firstSeenAt": "2026-11-11T04:08:39.491Z",
-      "lastChangedAt": "2026-11-16T07:58:49.057Z"
+      "lastChangedAt": "2026-11-17T09:13:04.535Z"
     },
     "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md": {
-      "hash": "cdb077a7ecea01a2d9277e067e7edf0fa691b5a287f3567fccbd1703278b6af6",
+      "hash": "1ed461b63ef78a5855bc1a7a2c42977bc4c70eb9266c0dd5751b547c9dcf67f6",
       "title": "claude-code/CHANGELOG.md at main · anthropics/claude-code · GitHub",
       "finalUrl": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-      "checkedAt": "2026-11-16T07:58:49.007Z",
+      "checkedAt": "2026-11-17T09:13:04.294Z",
       "firstSeenAt": "2026-11-11T04:08:39.796Z",
-      "lastChangedAt": "2026-11-15T07:51:55.193Z"
+      "lastChangedAt": "2026-11-17T09:13:04.294Z"
     },
     "https://codelabs.developers.google.com/getting-started-google-antigravity": {
       "hash": "0733a16ac1308ddf1ad8e4a87e48f91d006863e9e0b1d04e8719936e9797ae9e",
       "title": "Getting Started with Google Antigravity &nbsp;|&nbsp; Google Codelabs",
       "finalUrl": "https://codelabs.developers.google.com/getting-started-google-antigravity",
-      "checkedAt": "2026-11-16T07:58:48.624Z",
+      "checkedAt": "2026-11-17T09:13:03.997Z",
       "firstSeenAt": "2026-11-11T04:08:40.400Z",
       "lastChangedAt": "2026-11-16T07:58:48.624Z"
     },
     "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/docs": {
-      "hash": "4e55e339896ace8e60ea412cf61c49a60d81d63d8610c4c04c9b2c1ec32a31e2",
+      "hash": "3018846f57fb442206e8b18fb18dbdfa5740dbdfb8749b7547fb67df6a52bd9a",
       "title": "pi/packages/coding-agent/docs at main · earendil-works/pi · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi/tree/main/packages/coding-agent/docs",
-      "checkedAt": "2026-11-16T07:58:48.968Z",
+      "checkedAt": "2026-11-17T09:13:04.646Z",
       "firstSeenAt": "2026-11-11T04:08:40.608Z",
-      "lastChangedAt": "2026-11-14T07:36:47.076Z"
+      "lastChangedAt": "2026-11-17T09:13:04.646Z"
     },
     "https://docs.claude.com/en/docs/claude-code/overview": {
-      "hash": "b5777414ff728bf4643ec13b6e1db2d6384928616f292bb90f08be6611a7bf06",
+      "hash": "b9f82a3e63ec5c94e88c8ab7e80f5c219adc3c296c834a9a99530837e61b3521",
       "title": "Overview - Claude Code Docs",
       "finalUrl": "https://code.claude.com/docs/en/overview",
-      "checkedAt": "2026-11-16T07:58:48.486Z",
+      "checkedAt": "2026-11-17T09:13:03.371Z",
       "firstSeenAt": "2026-11-11T04:08:40.630Z",
-      "lastChangedAt": "2026-11-15T07:51:54.859Z"
+      "lastChangedAt": "2026-11-17T09:13:03.371Z"
     },
     "https://developers.openai.com/codex/": {
-      "hash": "0ccb146958332c2047af64a2db0045bb92a91e9598837ca0862b0b0df16b39c4",
+      "hash": "a28d3d6da67deceeba67840eb2c923453af175e2dc4c64d1b47452ca66313fa4",
       "title": "ChatGPT | ChatGPT Learn",
       "finalUrl": "https://learn.chatgpt.com/docs",
-      "checkedAt": "2026-11-16T07:58:48.615Z",
+      "checkedAt": "2026-11-17T09:13:03.535Z",
       "firstSeenAt": "2026-11-11T04:08:41.686Z",
-      "lastChangedAt": "2026-11-16T07:58:48.615Z"
+      "lastChangedAt": "2026-11-17T09:13:03.535Z"
     }
   },
-  "lastRunAt": "2026-11-16T07:58:49.450Z"
+  "lastRunAt": "2026-11-17T09:13:04.720Z"
 }
