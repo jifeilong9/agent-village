@@ -348,3 +348,25 @@
 - **Codex** · changelog: Releases · openai/codex · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent for tasks, projects, and au
 - **DeepSeek Harness** · changelog: Releases · deepseek-ai/deepseek-harness · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent for tasks, 
 
+## 2026-11-22T07:59:11.769Z
+
+检查 17 个来源，变化 7 个，失败 0 个。
+
+| Agent | 类型 | 来源 | 变化 |
+| --- | --- | --- | --- |
+| Claude Code | repo | https://github.com/anthropics/claude-code | 内容哈希变化 |
+| Claude Code | docs | https://docs.claude.com/en/docs/claude-code/overview | 内容哈希变化 |
+| Codex | repo | https://github.com/openai/codex | 内容哈希变化 |
+| Pi | repo | https://github.com/badlogic/pi-mono | 内容哈希变化 |
+| DeepSeek Harness | repo | https://github.com/deepseek-ai/deepseek-harness | 内容哈希变化 |
+| DeepSeek Harness | changelog | https://github.com/deepseek-ai/deepseek-harness/releases | 内容哈希变化 |
+| Codex | changelog | https://github.com/openai/codex/releases | 内容哈希变化 |
+
+- **Claude Code** · repo: GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex 
+- **Claude Code** · docs: Overview - Claude Code Docs Documentation Index Fetch the complete documentation index at: /docs/llms.txt Use this file to discover all available pages before exploring further. Skip to main content A
+- **Codex** · repo: GitHub - openai/codex: Lightweight coding agent that runs in your terminal · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration 
+- **Pi** · repo: GitHub - earendil-works/pi: AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code revi
+- **DeepSeek Harness** · repo: GitHub - deepseek-ai/deepseek-harness: DeepSeek Harness: Everything is a Plugin. · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collabor
+- **DeepSeek Harness** · changelog: Releases · deepseek-ai/deepseek-harness · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent for tasks, 
+- **Codex** · changelog: Releases · openai/codex · GitHub Skip to content Navigation Menu Sign in Products Platform GitHub Repository hosting, code review, and collaboration Copilot AI coding agent for tasks, projects, and au
+
