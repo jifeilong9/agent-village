@@ -4,7 +4,7 @@
       "hash": "15aff7e56d96a7cf466286d20698ddf6dc2a3cb650234f3cad051b75ac198eca",
       "title": "DeepSeek Harness | Explore the limits of intelligence",
       "finalUrl": "https://www.deepseek.com/en/harness/",
-      "checkedAt": "2026-11-24T10:55:12.672Z",
+      "checkedAt": "2026-11-25T09:51:31.039Z",
       "firstSeenAt": "2026-11-11T04:08:36.328Z",
       "lastChangedAt": "2026-11-11T04:08:36.328Z"
     },
@@ -12,7 +12,7 @@
       "hash": "e562a9c52c7a8128f4f86a266d433bda6f585cf54b3ae7dbc53c5284a14a4a6e",
       "title": "DeepSeek Harness",
       "finalUrl": "https://deepseek-harness.github.io/deepseek-harness/",
-      "checkedAt": "2026-11-24T10:55:12.599Z",
+      "checkedAt": "2026-11-25T09:51:31.053Z",
       "firstSeenAt": "2026-11-11T04:08:38.114Z",
       "lastChangedAt": "2026-11-11T04:08:38.114Z"
     },
@@ -20,7 +20,7 @@
       "hash": "7754055a5f9c92f0f2419e095a16838a452ad06c4ca778ba4455a11bf9563250",
       "title": "Redirecting to: /docs/getting-started",
       "finalUrl": "https://antigravity.google/docs",
-      "checkedAt": "2026-11-24T10:55:12.661Z",
+      "checkedAt": "2026-11-25T09:51:30.866Z",
       "firstSeenAt": "2026-11-11T04:08:38.647Z",
       "lastChangedAt": "2026-11-11T04:08:38.647Z"
     },
@@ -28,114 +28,114 @@
       "hash": "14514d0fa2819adde50c3bd300efe4538c6aa9864342622c2be0d9a7521ae1de",
       "title": "Pi",
       "finalUrl": "https://pi.dev/",
-      "checkedAt": "2026-11-24T10:55:12.585Z",
+      "checkedAt": "2026-11-25T09:51:30.687Z",
       "firstSeenAt": "2026-11-11T04:08:38.754Z",
       "lastChangedAt": "2026-11-11T04:08:38.754Z"
     },
     "https://github.com/openai/codex": {
-      "hash": "aae28282aa7e596ebb14676ed946082a1023d0b572b53aaf9ed63bf87362eb9a",
+      "hash": "c39c55f8f4a67bc2d2c6f97de534fd683fc3dbad1b07d3e71ae3dc8db73cfc1d",
       "title": "GitHub - openai/codex: Lightweight coding agent that runs in your terminal · GitHub",
       "finalUrl": "https://github.com/openai/codex",
-      "checkedAt": "2026-11-24T10:55:13.015Z",
+      "checkedAt": "2026-11-25T09:51:31.112Z",
       "firstSeenAt": "2026-11-11T04:08:38.961Z",
-      "lastChangedAt": "2026-11-24T10:55:13.015Z"
+      "lastChangedAt": "2026-11-25T09:51:31.112Z"
     },
     "https://github.com/deepseek-ai/deepseek-harness": {
-      "hash": "2da73796fcaa04a736c4efe683f4fefcfa40eee66adf711767d957b553d92932",
+      "hash": "c527217bb71f16c6a7cb1d7118a420e8397c7abf9ddd21ce9dfe015b5bfe3085",
       "title": "GitHub - deepseek-ai/deepseek-harness: DeepSeek Harness: Everything is a Plugin. · GitHub",
       "finalUrl": "https://github.com/deepseek-ai/deepseek-harness",
-      "checkedAt": "2026-11-24T10:55:13.029Z",
+      "checkedAt": "2026-11-25T09:51:31.306Z",
       "firstSeenAt": "2026-11-11T04:08:38.994Z",
-      "lastChangedAt": "2026-11-24T10:55:13.029Z"
+      "lastChangedAt": "2026-11-25T09:51:31.306Z"
     },
     "https://antigravity.google": {
-      "hash": "86f57200e9ee922ef40b8ec3a4958b87c1cf4c226d658eeb713150d2afe30ecd",
+      "hash": "4e286b4b3a2fa4254c150d49b1d1362a805cf402f55197ab74bd3fc705f9c6c8",
       "title": "Google Antigravity",
       "finalUrl": "https://antigravity.google/",
-      "checkedAt": "2026-11-24T10:55:12.634Z",
+      "checkedAt": "2026-11-25T09:51:30.812Z",
       "firstSeenAt": "2026-11-11T04:08:39.088Z",
-      "lastChangedAt": "2026-11-24T10:55:12.634Z"
+      "lastChangedAt": "2026-11-25T09:51:30.812Z"
     },
     "https://github.com/anthropics/claude-code": {
-      "hash": "f360019d626b4e3d9a5b793b74f6a8b914419efb75eeb69c725931f30b9aa9ff",
+      "hash": "e2e750fdaeb8d08922890874c267a330f4ac40a3ff22821c8fadaa6c0b27707b",
       "title": "GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. · GitHub",
       "finalUrl": "https://github.com/anthropics/claude-code",
-      "checkedAt": "2026-11-24T10:55:12.883Z",
+      "checkedAt": "2026-11-25T09:51:30.986Z",
       "firstSeenAt": "2026-11-11T04:08:39.163Z",
-      "lastChangedAt": "2026-11-24T10:55:12.883Z"
+      "lastChangedAt": "2026-11-25T09:51:30.986Z"
     },
     "https://github.com/openai/codex/releases": {
-      "hash": "2baca8d1723279560b1e03b965ebdf6f111c2d0acdd3f2ed3ef4049e645caff8",
+      "hash": "e38383552e6552bf603efb02babd7482bbbdb498d8ba39da758e2b665ba5de2b",
       "title": "Releases · openai/codex · GitHub",
       "finalUrl": "https://github.com/openai/codex/releases",
-      "checkedAt": "2026-11-24T10:55:13.610Z",
+      "checkedAt": "2026-11-25T09:51:31.331Z",
       "firstSeenAt": "2026-11-11T04:08:39.209Z",
-      "lastChangedAt": "2026-11-24T10:55:13.610Z"
+      "lastChangedAt": "2026-11-25T09:51:31.331Z"
     },
     "https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/README.md": {
-      "hash": "15614d308c3f4d5e8551bb177152091a70b465ebc52a57bf7c115cdf4e1f7d4b",
+      "hash": "f4241e9ad96a48445acff033c5abd4519e0cbbb39d866dfb86e9d255b21f1c6f",
       "title": "pi/packages/coding-agent/README.md at main · earendil-works/pi · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/README.md",
-      "checkedAt": "2026-11-24T10:55:13.153Z",
+      "checkedAt": "2026-11-25T09:51:31.017Z",
       "firstSeenAt": "2026-11-11T04:08:39.337Z",
-      "lastChangedAt": "2026-11-24T10:55:13.153Z"
+      "lastChangedAt": "2026-11-25T09:51:31.017Z"
     },
     "https://github.com/deepseek-ai/deepseek-harness/releases": {
-      "hash": "199d6e79d46751858ee50e46a8b683e5849e0e275582187b2ea50c0f27440772",
+      "hash": "0d92a0a79c01a57ef9e069321e8a82c9c8cfea6d3d97885cae38e0105ee89614",
       "title": "Releases · deepseek-ai/deepseek-harness · GitHub",
       "finalUrl": "https://github.com/deepseek-ai/deepseek-harness/releases",
-      "checkedAt": "2026-11-24T10:55:13.471Z",
+      "checkedAt": "2026-11-25T09:51:31.573Z",
       "firstSeenAt": "2026-11-11T04:08:39.485Z",
-      "lastChangedAt": "2026-11-24T10:55:13.471Z"
+      "lastChangedAt": "2026-11-25T09:51:31.573Z"
     },
     "https://github.com/badlogic/pi-mono": {
-      "hash": "2f979adf2e4ec670b70ed279055a8e1c4925a3bedf6bea1096a8e6f44bf3a02b",
+      "hash": "8f47fa778a5e9fcf1e1deba2282f8aa211aa430aabff1a26c01d4fc928259677",
       "title": "GitHub - earendil-works/pi: AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi",
-      "checkedAt": "2026-11-24T10:55:13.096Z",
+      "checkedAt": "2026-11-25T09:51:31.420Z",
       "firstSeenAt": "2026-11-11T04:08:39.491Z",
-      "lastChangedAt": "2026-11-24T10:55:13.096Z"
+      "lastChangedAt": "2026-11-25T09:51:31.420Z"
     },
     "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md": {
-      "hash": "4a147684e34a61d878eaced8e9465449eb075413b0ab4de318e9391650aef95b",
+      "hash": "1778d104af2d67216efc55d85fd4499f0981c23cdf1da7a074b158634fa05bd2",
       "title": "claude-code/CHANGELOG.md at main · anthropics/claude-code · GitHub",
       "finalUrl": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
-      "checkedAt": "2026-11-24T10:55:13.172Z",
+      "checkedAt": "2026-11-25T09:51:31.270Z",
       "firstSeenAt": "2026-11-11T04:08:39.796Z",
-      "lastChangedAt": "2026-11-24T10:55:13.172Z"
+      "lastChangedAt": "2026-11-25T09:51:31.270Z"
     },
     "https://codelabs.developers.google.com/getting-started-google-antigravity": {
-      "hash": "3530128819886684693883ce87aecf2b936e9d2482fb56ab785145675dd8fa25",
-      "title": "Начало работы с Google Antigravity &nbsp;|&nbsp; Google Codelabs",
-      "finalUrl": "https://codelabs.developers.google.com/getting-started-google-antigravity?hl=ru",
-      "checkedAt": "2026-11-24T10:55:13.343Z",
+      "hash": "0733a16ac1308ddf1ad8e4a87e48f91d006863e9e0b1d04e8719936e9797ae9e",
+      "title": "Getting Started with Google Antigravity &nbsp;|&nbsp; Google Codelabs",
+      "finalUrl": "https://codelabs.developers.google.com/getting-started-google-antigravity",
+      "checkedAt": "2026-11-25T09:51:31.122Z",
       "firstSeenAt": "2026-11-11T04:08:40.400Z",
-      "lastChangedAt": "2026-11-24T10:55:13.343Z"
+      "lastChangedAt": "2026-11-25T09:51:31.122Z"
     },
     "https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/docs": {
-      "hash": "11802da6074e99fa9f031842a4cb96122179f4c06edfdd0d1de5a2cb52a1166f",
+      "hash": "d73cabc52fbc00eac133ba59ee368b93bce36efdf821bc1e3472a15706003551",
       "title": "pi/packages/coding-agent/docs at main · earendil-works/pi · GitHub",
       "finalUrl": "https://github.com/earendil-works/pi/tree/main/packages/coding-agent/docs",
-      "checkedAt": "2026-11-24T10:55:13.064Z",
+      "checkedAt": "2026-11-25T09:51:31.023Z",
       "firstSeenAt": "2026-11-11T04:08:40.608Z",
-      "lastChangedAt": "2026-11-24T10:55:13.064Z"
+      "lastChangedAt": "2026-11-25T09:51:31.023Z"
     },
     "https://docs.claude.com/en/docs/claude-code/overview": {
-      "hash": "31c27059bb4bb9865a96f4700ff03636810649726c0474da57eafa2d397baf2a",
+      "hash": "a17bf506c50feccd328643d178dde659e84139ae3eb9f5ce6f7c8f9252fcaf43",
       "title": "Overview - Claude Code Docs",
       "finalUrl": "https://code.claude.com/docs/en/overview",
-      "checkedAt": "2026-11-24T10:55:12.649Z",
+      "checkedAt": "2026-11-25T09:51:31.065Z",
       "firstSeenAt": "2026-11-11T04:08:40.630Z",
-      "lastChangedAt": "2026-11-24T10:55:12.649Z"
+      "lastChangedAt": "2026-11-25T09:51:31.065Z"
     },
     "https://developers.openai.com/codex/": {
-      "hash": "8336249822b061057100bfc3e040ab9ac36e5e8bac9ada75380bea70b305655e",
+      "hash": "0be5383d0b61ae2a736132a52e7b1c193a8b55b14005cb12b4f74a55964eba31",
       "title": "ChatGPT | ChatGPT Learn",
       "finalUrl": "https://learn.chatgpt.com/docs",
-      "checkedAt": "2026-11-24T10:55:12.788Z",
+      "checkedAt": "2026-11-25T09:51:31.125Z",
       "firstSeenAt": "2026-11-11T04:08:41.686Z",
-      "lastChangedAt": "2026-11-24T10:55:12.788Z"
+      "lastChangedAt": "2026-11-25T09:51:31.125Z"
     }
   },
-  "lastRunAt": "2026-11-24T10:55:13.610Z"
+  "lastRunAt": "2026-11-25T09:51:31.573Z"
 }
